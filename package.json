@@ -1,0 +1,81 @@
+{
+  "name": "rntemplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@apollo/client": "3.5.10",
+    "@graphql-codegen/cli": "2.6.2",
+    "@react-native-community/blur": "3.6.0",
+    "@react-native-community/checkbox": "0.5.12",
+    "@react-navigation/bottom-tabs": "6.0.7",
+    "@react-navigation/native": "6.0.4",
+    "@react-navigation/native-stack": "6.2.2",
+    "graphql": "16.4.0",
+    "lodash": "4.17.21",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-bouncy-checkbox": "2.1.10",
+    "react-native-grid-list": "1.1.0",
+    "react-native-modal": "13.0.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.8.0",
+    "react-native-svg": "12.3.0",
+    "react-native-svg-transformer": "1.0.0",
+    "react-native-typography": "1.4.1",
+    "styled-components": "5.3.1",
+    "styled-tools": "1.7.2",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.9",
+    "@babel/runtime": "7.12.5",
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/typescript": "2.4.11",
+    "@graphql-codegen/typescript-operations": "2.4.0",
+    "@graphql-codegen/typescript-react-apollo": "3.2.14",
+    "@react-native-community/eslint-config": "2.0.0",
+    "@types/jest": "26.0.23",
+    "@types/lodash": "4.14.175",
+    "@types/react-native": "0.65.0",
+    "@types/react-test-renderer": "17.0.1",
+    "@types/styled-components": "5.1.14",
+    "@types/styled-components-react-native": "5.1.1",
+    "@typescript-eslint/eslint-plugin": "4.32.0",
+    "@typescript-eslint/parser": "4.32.0",
+    "babel-jest": "26.6.3",
+    "babel-plugin-module-resolver": "4.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "jest": "26.6.3",
+    "metro-react-native-babel-preset": "0.66.0",
+    "react-native-codegen": "0.0.7",
+    "react-test-renderer": "17.0.2",
+    "typescript": "4.4.3"
+  },
+  "resolutions": {
+    "@types/react": "17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
