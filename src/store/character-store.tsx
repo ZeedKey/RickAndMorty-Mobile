@@ -1,16 +1,17 @@
-import React, { createContext, useState } from 'react'
+import React, {createContext, useState} from 'react';
 
 export interface ICharacterFilterState {
-  name: string
-  species: string
-  isAlive: boolean
-  isDead: boolean
-  isUnknown: boolean
-  isFemale: boolean
-  isMale: boolean
-  isGenderless: boolean
-  isGenderUnknown: boolean
-  isApplied: boolean
+  name: string;
+  species: string;
+  isAlive: boolean;
+  isDead: boolean;
+  isUnknown: boolean;
+  isFemale: boolean;
+  isMale: boolean;
+  isGenderless: boolean;
+  isGenderUnknown: boolean;
+  isApplied: boolean;
+  isAnyChoosed: boolean;
 }
 
 const initialState: ICharacterFilterState = {
@@ -24,18 +25,15 @@ const initialState: ICharacterFilterState = {
   isGenderless: false,
   isGenderUnknown: false,
   isApplied: false,
-}
+  isAnyChoosed: false,
+};
 
 export const CharacterContext = createContext({
   filter: initialState,
   setFilter: (val: ICharacterFilterState) => {},
-})
-export const CharacterProvider = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
-  const [filter, setFilter] = useState(initialState)
+});
+export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
+  const [filter, setFilter] = useState(initialState);
   return (
     <CharacterContext.Provider
       value={{
@@ -44,5 +42,5 @@ export const CharacterProvider = ({
       }}>
       {children}
     </CharacterContext.Provider>
-  )
-}
+  );
+};

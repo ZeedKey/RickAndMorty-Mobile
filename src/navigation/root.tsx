@@ -1,25 +1,24 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import { useAlertContext } from 'src/modules/alert-context'
-import { Alert } from 'src/ui/common/alert'
+import {useAlertContext} from 'src/modules/alert-context';
 
-import { Routes } from './routes'
-import { TabBar } from './tabbar'
-import { useNavigation } from '@react-navigation/native'
-import { ApplyButton, BackButton } from '@ui/common'
-import { LocationList } from 'src/ui/details/location/location-list'
-import { EpisodeList } from 'src/ui/details/episode/episode-list'
-import { CharacterList } from 'src/ui/details/character/character-list'
-import { CharacterFilterLayout } from 'src/screens'
-import { NameOption } from 'src/ui/filter/option/name'
-import { SpeciesOption } from 'src/ui/filter/option/species'
-const Stack = createNativeStackNavigator()
+import {Routes} from './routes';
+import {TabBar} from './tabbar';
+import {useNavigation} from '@react-navigation/native';
+import {ApplyButton, BackButton} from '@ui/common';
+import {LocationList} from 'src/ui/details/location/location-list';
+import {EpisodeList} from 'src/ui/details/episode/episode-list';
+import {CharacterList} from 'src/ui/details/character/character-list';
+import {CharacterFilterLayout} from 'src/screens';
+import {NameOption} from 'src/ui/filter/option/name';
+import {SpeciesOption} from 'src/ui/filter/option/species';
+const Stack = createNativeStackNavigator();
 
 export const RootNavigation = () => {
-  const { visible } = useAlertContext()
-  const nav = useNavigation()
-  const handleGoBack = () => nav.goBack()
+  const {visible} = useAlertContext();
+  const nav = useNavigation();
+  const handleGoBack = () => nav.goBack();
 
   return (
     <React.Fragment>
@@ -31,7 +30,7 @@ export const RootNavigation = () => {
         initialRouteName={Routes.MainNavigator}>
         <Stack.Screen
           name={Routes.MainNavigator}
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
           component={TabBar}
         />
         <Stack.Screen
@@ -62,9 +61,15 @@ export const RootNavigation = () => {
             headerLeft: () => <></>,
           }}
         />
-        <Stack.Screen name={Routes.Filter} component={CharacterFilterLayout} />
+        <Stack.Screen
+          name={Routes.Filter}
+          component={CharacterFilterLayout}
+          options={{
+            headerRight: () => <ApplyButton onPress={handleGoBack} />,
+            headerLeft: () => <></>,
+          }}
+        />
       </Stack.Navigator>
-      {visible && <Alert />}
     </React.Fragment>
-  )
-}
+  );
+};

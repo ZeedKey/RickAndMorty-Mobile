@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 interface ICheckBoxProps {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export const Checkbox: React.FC<ICheckBoxProps> = ({isActive}) => {
