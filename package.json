@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "build:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen-run": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "3.5.10",

@@ -4,6 +4,7 @@ import {RootNavigation} from 'src/navigation/root';
 import {AlertProvider} from './src/modules/alert-context';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import {CharacterProvider} from './src/store/character-store';
+import {EpisodeProvider} from '@store';
 
 const API_URL = 'https://rickandmortyapi.com/graphql';
 
@@ -18,6 +19,7 @@ const cache = new InMemoryCache({
     },
   },
 });
+
 const client = new ApolloClient({
   uri: API_URL,
   cache: cache,
@@ -25,14 +27,16 @@ const client = new ApolloClient({
 
 export const App = () => {
   return (
-    <CharacterProvider>
-      <ApolloProvider client={client}>
-        <AlertProvider>
-          <NavigationContainer>
-            <RootNavigation />
-          </NavigationContainer>
-        </AlertProvider>
-      </ApolloProvider>
-    </CharacterProvider>
+    <EpisodeProvider>
+      <CharacterProvider>
+        <ApolloProvider client={client}>
+          <AlertProvider>
+            <NavigationContainer>
+              <RootNavigation />
+            </NavigationContainer>
+          </AlertProvider>
+        </ApolloProvider>
+      </CharacterProvider>
+    </EpisodeProvider>
   );
 };

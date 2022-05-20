@@ -1,12 +1,10 @@
-import { useFetchEpisodes } from '@hooks'
-import { Episode } from '@ui/badges'
-import { List } from '@ui/common'
-import React, { useState } from 'react'
-import { Episode as Model, useGetEpisodesQuery } from 'src/schemas/generated'
-import { MainLayout } from 'src/ui/layouts/MainLayout'
+import {useFetchEpisodes} from '@hooks';
+import {List} from '@ui/common';
+import React from 'react';
+import {MainLayout} from 'src/ui/layouts/MainLayout';
 
 export const EpisodeScreen = () => {
-  const { data, renderItem, pagination } = useFetchEpisodes()
+  const {data, renderItem, pagination} = useFetchEpisodes({});
 
   return (
     <MainLayout>
@@ -17,5 +15,5 @@ export const EpisodeScreen = () => {
         renderItem={renderItem}
       />
     </MainLayout>
-  )
-}
+  );
+};

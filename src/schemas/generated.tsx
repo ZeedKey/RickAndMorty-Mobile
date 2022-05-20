@@ -213,6 +213,7 @@ export type GetCharactersQueryVariables = Exact<{
   name: InputMaybe<Scalars['String']>;
   species: InputMaybe<Scalars['String']>;
   page: InputMaybe<Scalars['Int']>;
+  gender: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -228,6 +229,7 @@ export type GetEpisodeByIdQuery = { __typename?: 'Query', episode: { __typename?
 export type GetEpisodesQueryVariables = Exact<{
   name: InputMaybe<Scalars['String']>;
   page: InputMaybe<Scalars['Int']>;
+  episode: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -303,8 +305,11 @@ export type GetCharactersByIdQueryHookResult = ReturnType<typeof useGetCharacter
 export type GetCharactersByIdLazyQueryHookResult = ReturnType<typeof useGetCharactersByIdLazyQuery>;
 export type GetCharactersByIdQueryResult = Apollo.QueryResult<GetCharactersByIdQuery, GetCharactersByIdQueryVariables>;
 export const GetCharactersDocument = gql`
-    query getCharacters($name: String, $species: String, $page: Int) {
-  characters(page: $page, filter: {name: $name, species: $species}) {
+    query getCharacters($name: String, $species: String, $page: Int, $gender: String) {
+  characters(
+    page: $page
+    filter: {name: $name, species: $species, gender: $gender}
+  ) {
     info {
       pages
       next
@@ -334,6 +339,7 @@ export const GetCharactersDocument = gql`
  *      name: // value for 'name'
  *      species: // value for 'species'
  *      page: // value for 'page'
+ *      gender: // value for 'gender'
  *   },
  * });
  */
@@ -393,8 +399,8 @@ export type GetEpisodeByIdQueryHookResult = ReturnType<typeof useGetEpisodeByIdQ
 export type GetEpisodeByIdLazyQueryHookResult = ReturnType<typeof useGetEpisodeByIdLazyQuery>;
 export type GetEpisodeByIdQueryResult = Apollo.QueryResult<GetEpisodeByIdQuery, GetEpisodeByIdQueryVariables>;
 export const GetEpisodesDocument = gql`
-    query getEpisodes($name: String, $page: Int) {
-  episodes(page: $page, filter: {name: $name}) {
+    query getEpisodes($name: String, $page: Int, $episode: String) {
+  episodes(page: $page, filter: {name: $name, episode: $episode}) {
     info {
       pages
       next
@@ -423,6 +429,7 @@ export const GetEpisodesDocument = gql`
  *   variables: {
  *      name: // value for 'name'
  *      page: // value for 'page'
+ *      episode: // value for 'episode'
  *   },
  * });
  */

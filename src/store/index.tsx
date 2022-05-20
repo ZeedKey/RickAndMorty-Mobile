@@ -1,1 +1,2 @@
-export * from './character-store'
+export * from './character-store';
+export * from './episode-store';

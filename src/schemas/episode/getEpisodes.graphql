@@ -1,6 +1,6 @@
-query getEpisodes($name: String, $page: Int) {
-  episodes(page: $page, filter: { name: $name }) {
-    info{
+query getEpisodes($name: String, $page: Int, $episode: String) {
+  episodes(page: $page, filter: {name: $name, episode: $episode}) {
+    info {
       pages
       next
     }

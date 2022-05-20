@@ -1,6 +1,6 @@
 import { Multioption } from '@ui/common'
 import React from 'react'
-import { CharacterSection } from './character-section'
+import { CharacterSection } from '../section/character'
 
 export const GenderOptions: React.FC = () => {
   return (

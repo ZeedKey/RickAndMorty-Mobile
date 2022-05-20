@@ -1,20 +1,25 @@
-import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
+import React, {createContext, useState} from 'react';
 
-const initialState = {
-  name: '',
-  species: '',
+export interface IEpisodeFilterState {
+  name: string;
+  episode: string;
+  isApplied: boolean;
+  isAnyChoosed: boolean;
 }
+
+const initialState: IEpisodeFilterState = {
+  name: '',
+  episode: '',
+  isApplied: false,
+  isAnyChoosed: false,
+};
 
 export const EpisodeContext = createContext({
   filter: initialState,
-  setFilter: (val: any) => {},
-})
-export const CharacterProvider = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
-  const [filter, setFilter] = useState(initialState)
+  setFilter: (val: IEpisodeFilterState) => {},
+});
+export const EpisodeProvider = ({children}: {children: React.ReactNode}) => {
+  const [filter, setFilter] = useState(initialState);
   return (
     <EpisodeContext.Provider
       value={{
@@ -23,5 +28,5 @@ export const CharacterProvider = ({
       }}>
       {children}
     </EpisodeContext.Provider>
-  )
-}
+  );
+};
