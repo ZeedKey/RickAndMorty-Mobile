@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import {useRoute} from '@react-navigation/native';
-import {useNavigation} from 'src/navigation/routes';
+import {Routes, useNavigation} from 'src/navigation/routes';
 import {accent, font, lt_space, sizes} from '@theme';
 import {Pressable} from 'react-native';
 
-//CALBACK
+interface IHeaderProps {
+  title: string;
+  callback: () => void;
+}
 
-export const Header = () => {
-  const route = useRoute();
-  const [isFilterShown, setFilterShown] = useState<boolean>(false);
-
+export const Header: React.FC<IHeaderProps> = ({title, callback}) => {
   return (
     <Box>
-      <Pressable>
+      <Pressable onPress={callback}>
         <Label>Filter</Label>
       </Pressable>
-      <Name>{route.name}</Name>
+      <Name>{title}</Name>
     </Box>
   );
 };

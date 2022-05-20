@@ -1,3 +1,3 @@
-export * from './character/character-header';
-export * from './episode/episode-header';
-export * from './location/location-header';
+export * from './character-header';
+export * from './episode-header';
+export * from './location-header';

@@ -14,17 +14,19 @@ export const CharacterStack = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Character.Screen
-        name={Routes.CharacterScreen}
-        component={CharacterScreen}
-      />
-      <Character.Screen
-        name={Routes.CharacterDetails}
-        component={CharacterDetails}
-        options={{
-          headerTitleAlign: 'center',
-        }}
-      />
+      <Character.Group>
+        <Character.Screen
+          name={Routes.CharacterScreen}
+          component={CharacterScreen}
+        />
+        <Character.Screen
+          name={Routes.CharacterDetails}
+          component={CharacterDetails}
+          options={{
+            headerTitleAlign: 'center',
+          }}
+        />
+      </Character.Group>
     </Character.Navigator>
   );
 };

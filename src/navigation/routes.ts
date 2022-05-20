@@ -18,7 +18,10 @@ export enum Routes {
   EpisodeDetails = 'EpisodeDetails',
   LocationDetails = 'LocationDetails',
 
-  Filter = 'Filter',
+  CharacterFilter = 'CharacterFilter',
+  LocationFilter = 'LocationFilter',
+  EpisodeFilter = 'EpisodeFilter',
+
   Option = 'Option',
   NameOption = 'Name',
   SpeciesOption = 'Species',
