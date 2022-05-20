@@ -14,6 +14,7 @@
           "@ui/icons": "./src/ui/icons",
           "@ui/filter": "./src/ui/filter",
           "@ui/details": "./src/ui/details",
+          "@ui/modal": "./src/ui/modal",
           "@screens": "./src/screens",
           "@hooks": "./src/hooks",
           "@models": "./src/models",

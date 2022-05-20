@@ -1,7 +1,8 @@
 import React, {useContext, useState} from 'react';
-import {ModalMenu, Option} from '@ui/common';
+import {ModalHeader, ModalMenu, Option} from '@ui/common';
 import styled from 'styled-components/native';
 import {CharacterContext} from '@store';
+import {CharNameModal as NameModal, GenderOptions} from '@ui/modal';
 
 interface IModalProps {
   isShown: boolean;
@@ -10,15 +11,17 @@ interface IModalProps {
 
 export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   const {filter} = useContext(CharacterContext);
+  const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
+      <ModalHeader title="Filter" />
       <Box>
         <Option
-          title="Species"
-          body="Enter species"
+          title="Name"
+          body="Give a name"
           isActive={!!filter.species}
-          onPress={() => setShown(true)}
+          onPress={() => setNameModalShown(true)}
         />
         <Option
           title="Species"
@@ -26,6 +29,8 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
           isActive={!!filter.species}
           onPress={() => 1}
         />
+        <GenderOptions />
+        {/* <NameModal isShown={isNameModalShown} setShown={setNameModalShown} /> */}
       </Box>
     </ModalMenu>
   );

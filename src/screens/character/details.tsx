@@ -7,7 +7,7 @@ import {
 } from 'src/schemas/generated';
 import {Episode} from '@ui/badges';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {DetailLayout} from '@ui/layouts';
+import {TitleLayout} from '@ui/layouts';
 import {CharacterHeader} from '@ui/details';
 
 export const CharacterDetails: React.FC = () => {
@@ -20,13 +20,13 @@ export const CharacterDetails: React.FC = () => {
   const renderItem = ({item}: {item: Model}) => <Episode {...item} />;
 
   return (
-    <DetailLayout title={data?.character.name}>
+    <TitleLayout title={data?.character.name}>
       <List
         data={data?.character.episode}
         renderItem={renderItem}
         columns={1}
         header={() => <CharacterHeader data={data} />}
       />
-    </DetailLayout>
+    </TitleLayout>
   );
 };

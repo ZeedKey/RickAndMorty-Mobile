@@ -7,7 +7,7 @@ import {
 import {List} from '@ui/common';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {View} from 'react-native';
-import {DetailLayout} from '@ui/layouts';
+import {TitleLayout} from '@ui/layouts';
 import {Character} from '@ui/badges';
 import {EpisodeHeader} from '@ui/details';
 
@@ -23,7 +23,7 @@ export const EpisodeDetails: React.FC = () => {
   };
 
   return (
-    <DetailLayout title={data?.episode.name}>
+    <TitleLayout title={data?.episode.name}>
       <View>
         <List
           data={data?.episode.characters}
@@ -32,6 +32,6 @@ export const EpisodeDetails: React.FC = () => {
           columns={2}
         />
       </View>
-    </DetailLayout>
+    </TitleLayout>
   );
 };

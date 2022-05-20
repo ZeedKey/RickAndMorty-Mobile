@@ -7,7 +7,7 @@ export const LocationScreen = () => {
   const {data, pagination, renderItem} = useFetchLocations();
 
   return (
-    <MainLayout>
+    <MainLayout title='Locations'>
       <List
         data={data?.locations.results}
         renderItem={renderItem}

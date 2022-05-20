@@ -1,5 +1,5 @@
 import {List} from '@ui/common';
-import {DetailLayout} from '@ui/layouts';
+import {TitleLayout} from '@ui/layouts';
 import React from 'react';
 import {View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
@@ -20,7 +20,7 @@ export const LocationDetails: React.FC = () => {
 
   const renderItem = ({item}: {item: Model}) => <Character {...item} />;
   return (
-    <DetailLayout title={data?.location?.name}>
+    <TitleLayout title={data?.location?.name}>
       <View>
         <List
           header={() => <LocationHeader data={data} />}
@@ -29,6 +29,6 @@ export const LocationDetails: React.FC = () => {
           columns={2}
         />
       </View>
-    </DetailLayout>
+    </TitleLayout>
   );
 };

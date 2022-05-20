@@ -1,7 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import {useRoute} from '@react-navigation/native';
-import {Routes, useNavigation} from 'src/navigation/routes';
 import {accent, font, lt_space, sizes} from '@theme';
 import {Pressable} from 'react-native';
 
@@ -20,7 +18,8 @@ export const Header: React.FC<IHeaderProps> = ({title, callback}) => {
     </Box>
   );
 };
-const Box = styled.View`
+
+const Box = styled.SafeAreaView`
   margin-left: 17px;
   margin-right: 17px;
   padding-bottom: 10px;

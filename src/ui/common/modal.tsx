@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import Modal from 'react-native-modal';
 import {BlurView} from '@react-native-community/blur';
 import styled from 'styled-components/native';
+import {basic} from '@theme';
 
 interface IModalMenu {
   showModal: boolean;
@@ -25,6 +26,8 @@ export const ModalMenu: FC<IModalMenu> = ({
       swipeDirection={['down']}
       useNativeDriverForBackdrop
       statusBarTranslucent
+      animationIn={'slideInDown'}
+      animationOut={'slideOutUp'}
       backdropOpacity={0.1}
       useNativeDriver
       hideModalContentWhileAnimating>
@@ -37,16 +40,18 @@ export const ModalMenu: FC<IModalMenu> = ({
 
 const StyledModal = styled(Modal)`
   margin: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 100px;
 `;
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   overflow: hidden;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  background-color: ${basic.white};
 `;
 
 const Blur = styled(BlurView)`
   padding: 20px;
+  background-color: ${basic.white};
 `;
