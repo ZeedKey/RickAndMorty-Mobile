@@ -1,6 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Routes} from './routes';
+import {LocationScreen} from '@screens';
+import {LocationDetails} from 'src/screens/location/details';
 
 const Location = createNativeStackNavigator();
 
@@ -10,14 +12,12 @@ export const LocationStack = () => {
       <Location.Screen
         name={Routes.LocationScreen}
         component={LocationScreen}
-        options={{header: () => <FilterLocations />}}
       />
       <Location.Screen
-        name={Routes.DetailedLocation}
-        component={DetailedLocation}
+        name={Routes.LocationDetails}
+        component={LocationDetails}
         options={{
           headerTitleAlign: 'center',
-          headerLeft: () => <BackButton />,
         }}
       />
     </Location.Navigator>

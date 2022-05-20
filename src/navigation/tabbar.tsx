@@ -6,8 +6,10 @@ import {Routes} from './routes';
 import {GhostActive, GhostInactive} from 'src/ui/icons/ghost';
 import {PlanetActive, PlanetInactive} from 'src/ui/icons/planet';
 import {TvActive, TvInactive} from 'src/ui/icons/tv';
-import {CharacterScreen} from '@screens';
+import {CharacterScreen, EpisodeScreen, LocationScreen} from '@screens';
 import {CharacterStack} from './character-stack';
+import {LocationStack} from './location-stack';
+import {EpisodeStack} from './episode-stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,22 +27,23 @@ export const TabBar = () => {
             focused ? <GhostActive /> : <GhostInactive />,
         }}
       />
-      {/* <Tab.Screen
-        name={Routes.LocationScreen}
-        component={LocationScreen}
+      <Tab.Screen
+        name={Routes.LocationStack}
+        component={LocationStack}
         options={{
-          tabBarIcon: ({ focused }) => focused ? <PlanetActive/> : <PlanetInactive/>,
+          tabBarIcon: ({focused}) =>
+            focused ? <PlanetActive /> : <PlanetInactive />,
         }}
       />
 
       <Tab.Screen
-        name={Routes.EpisodeScreen}
-        component={EpisodeScreen}
+        name={Routes.EpisodeStack}
+        component={EpisodeStack}
         options={{
           headerTitle: 'Episode',
-          tabBarIcon: ({ focused }) => focused ? <TvActive/> : <TvInactive/>,
+          tabBarIcon: ({focused}) => (focused ? <TvActive /> : <TvInactive />),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };

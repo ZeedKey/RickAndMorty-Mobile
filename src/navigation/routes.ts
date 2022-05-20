@@ -13,9 +13,9 @@ export enum Routes {
   LocationStack = 'LocationsStack',
 
   MainNavigator = 'MainNavigator',
-  
+
   CharacterDetails = 'CharacterDetails',
-  EpisodeDetail = 'EpisodeDetails',
+  EpisodeDetails = 'EpisodeDetails',
   LocationDetails = 'LocationDetails',
 
   Filter = 'Filter',
