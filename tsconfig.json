@@ -46,6 +46,8 @@
       "@models": ["./src/models"],
       "@ui/icons": ["./src/ui/icons"],
       "@ui/filter": ["./src/ui/filter"],
+      "@ui/details": ["./src/ui/details"],
+      "@screens": ["./src/screens"],
       "@hooks": ["./src/hooks"],
       "@theme": ["./src/theme"],
       "@schemas": ["./src/schemas"],

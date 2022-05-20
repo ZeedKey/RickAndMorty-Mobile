@@ -1,6 +1,6 @@
 import React from 'react';
-import {CharacterFilterUi} from '@ui/filter';
+import {CharacterModal} from 'src/ui/modal/character';
 
 export const CharacterFilterScreen = () => {
-  return <CharacterFilterUi />;
+  return <CharacterModal />;
 };

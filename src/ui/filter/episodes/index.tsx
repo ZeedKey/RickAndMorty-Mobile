@@ -16,13 +16,13 @@ export const EpisodeFilter: React.FC = () => {
         title="Name"
         body="Give a name"
         isActive={!!filter.name}
-        onPress={() => handleTo(Routes.NameOption)}
+        onPress={() => handleTo(Routes.EpisodeNameOption)}
       />
       <Option
         title="Episode"
         body="Select one"
         isActive={!!filter.episode}
-        onPress={() => handleTo(Routes.SpeciesOption)}
+        onPress={() => handleTo(Routes.EpisodeOption)}
       />
     </Box>
   );

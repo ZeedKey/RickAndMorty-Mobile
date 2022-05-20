@@ -13,6 +13,8 @@
           "@ui/layouts": "./src/ui/layouts",
           "@ui/icons": "./src/ui/icons",
           "@ui/filter": "./src/ui/filter",
+          "@ui/details": "./src/ui/details",
+          "@screens": "./src/screens",
           "@hooks": "./src/hooks",
           "@models": "./src/models",
           "@theme": "./src/theme",

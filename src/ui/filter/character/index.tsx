@@ -3,6 +3,7 @@ import {basic} from '@theme';
 import {Option} from '@ui/common';
 import React, {useContext} from 'react';
 import {Routes, useNavigation} from 'src/navigation/routes';
+import {CharacterModal} from 'src/ui/modal/character';
 import styled from 'styled-components/native';
 import {GenderOptions} from './options/gender';
 import {StatusOptions} from './options/status';
@@ -14,21 +15,7 @@ export const CharacterFilterUi: React.FC = () => {
 
   return (
     <Box>
-      <Option
-        title="Name"
-        body="Give a name"
-        isActive={!!filter.name}
-        onPress={() => handleTo(Routes.NameOption)}
-      />
-      <Option
-        title="Species"
-        body="Enter species"
-        isActive={!!filter.species}
-        onPress={() => handleTo(Routes.SpeciesOption)}
-      />
-
-      <StatusOptions />
-      <GenderOptions />
+      <CharacterModal />
     </Box>
   );
 };

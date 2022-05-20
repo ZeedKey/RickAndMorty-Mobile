@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootNavigation} from 'src/navigation/root';
-import {AlertProvider} from './src/modules/alert-context';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import {CharacterProvider} from './src/store/character-store';
 import {EpisodeProvider} from '@store';
@@ -30,11 +29,9 @@ export const App = () => {
     <EpisodeProvider>
       <CharacterProvider>
         <ApolloProvider client={client}>
-          <AlertProvider>
-            <NavigationContainer>
-              <RootNavigation />
-            </NavigationContainer>
-          </AlertProvider>
+          <NavigationContainer>
+            <RootNavigation />
+          </NavigationContainer>
         </ApolloProvider>
       </CharacterProvider>
     </EpisodeProvider>
