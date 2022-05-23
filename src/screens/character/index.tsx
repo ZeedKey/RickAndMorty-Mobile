@@ -4,6 +4,7 @@ import {useFetchCharacters} from '@hooks';
 import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
 import {CharacterFilter} from './modal';
+import {CharFormProvider} from '@store';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
@@ -15,13 +16,15 @@ export const CharacterScreen = () => {
   const onHeaderClick = () => setFilterShown(true);
 
   return (
-    <MainLayout title="Characters" callback={onHeaderClick}>
-      <List
-        data={data?.characters.results}
-        renderItem={renderItem}
-        handlePage={pagination}
-      />
-      <CharacterFilter isShown={isFilterShown} setShown={setFilterShown} />
-    </MainLayout>
+    <CharFormProvider>
+      <MainLayout title="Characters" callback={onHeaderClick}>
+        <List
+          data={data?.characters.results}
+          renderItem={renderItem}
+          handlePage={pagination}
+        />
+        <CharacterFilter isShown={isFilterShown} setShown={setFilterShown} />
+      </MainLayout>
+    </CharFormProvider>
   );
 };

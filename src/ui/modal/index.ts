@@ -1,5 +1,7 @@
-export { CharacterOption } from "./character/character-option";
-export { GenderOptions } from "./character/gender-options";
-export { CharNameModal } from "./character/name-input";
-export { CharSpeciesModal } from "./character/species-input";
-export { StatusOptions } from "./character/status-options";
+export { CharNameModal } from "./character/inputs/name-input";
+export { CharSpeciesModal } from "./character/inputs/species-input";
+export { GenderOptions } from "./character/lists/gender-list";
+export { StatusOptions } from "./character/lists/status-list";
+export { NameOption } from "./character/options/name-option";
+export { SpeciesOption } from "./character/options/species-option";
+export { CharacterOption } from "./character/reusable/character-option";

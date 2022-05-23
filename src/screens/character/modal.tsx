@@ -1,8 +1,13 @@
-import React, {useContext, useState} from 'react';
-import {ModalHeader, ModalMenu, Option} from '@ui/common';
+import React, {useContext, useEffect, useState} from 'react';
+import {ModalHeader, ModalMenu} from '@ui/common';
 import styled from 'styled-components/native';
-import {CharacterContext} from '@store';
-import {CharNameModal as NameModal, GenderOptions} from '@ui/modal';
+import {CharacterContext, CharFormContext, CharFormProvider} from '@store';
+import {
+  CharNameModal as NameModal,
+  GenderOptions,
+  NameOption,
+  SpeciesOption,
+} from '@ui/modal';
 
 interface IModalProps {
   isShown: boolean;
@@ -10,28 +15,29 @@ interface IModalProps {
 }
 
 export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
-  const {filter} = useContext(CharacterContext);
+  const {filter, setFilter} = useContext(CharacterContext);
+  const {form} = useContext(CharFormContext);
   const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
+  const [isSpeciesModalShown, setSpeciesModalShown] = useState<boolean>(false);
+
+  const onApplyPressed = () => {
+    setFilter({...form});
+    console.log(form);
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader title="Filter" />
+      <ModalHeader title="Filter" onPress={onApplyPressed} />
       <Box>
-        <Option
-          title="Name"
-          body="Give a name"
-          isActive={!!filter.species}
-          onPress={() => setNameModalShown(true)}
-        />
-        <Option
-          title="Species"
-          body="Enter species"
-          isActive={!!filter.species}
-          onPress={() => 1}
+        <NameOption onPress={() => setNameModalShown(true)} />
+        <SpeciesOption
+          isActive={!!form.species}
+          onPress={() => setSpeciesModalShown(true)}
         />
         <GenderOptions />
-        {/* <NameModal isShown={isNameModalShown} setShown={setNameModalShown} /> */}
+        {/* <StatusOptions onPress={onOptionPressed} /> */}
       </Box>
+      <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />
     </ModalMenu>
   );
 };

@@ -2,7 +2,11 @@ import {accent, basic, font, lt_space, sizes} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
-export const ApplyButton: React.FC<{onPress: () => void}> = ({onPress}) => {
+interface IApplyButtonProps {
+  onPress: any;
+}
+
+export const ApplyButton: React.FC<IApplyButtonProps> = ({onPress}) => {
   return (
     <Button onPress={onPress}>
       <Label>APPLY</Label>
@@ -15,6 +19,7 @@ const Button = styled.TouchableOpacity`
   padding: 5px 12px;
   background-color: ${accent.indigo};
   width: 70px;
+  flex-grow: 0;
 `;
 const Label = styled.Text`
   color: ${basic.white};

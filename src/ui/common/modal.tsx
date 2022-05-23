@@ -52,6 +52,5 @@ const Container = styled.SafeAreaView`
 `;
 
 const Blur = styled(BlurView)`
-  padding: 20px;
   background-color: ${basic.white};
 `;

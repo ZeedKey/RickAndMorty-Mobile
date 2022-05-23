@@ -1,6 +1,6 @@
 import {Multioption} from '@ui/common';
 import React from 'react';
-import {CharacterOption as Option} from './character-option';
+import {CharacterOption as Option} from '../reusable/character-option';
 
 export const StatusOptions: React.FC = () => {
   return (

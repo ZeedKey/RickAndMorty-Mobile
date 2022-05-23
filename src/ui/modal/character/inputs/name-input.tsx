@@ -1,8 +1,8 @@
 import {useFetchCharacters} from '@hooks';
-import {CharacterContext} from '@store';
-import {Input, List, ModalMenu} from '@ui/common';
+import {CharFormContext} from '@store';
+import {BackButton, Input, List, ModalMenu} from '@ui/common';
 import React, {useContext} from 'react';
-import {useNavigation} from 'src/navigation/routes';
+
 import styled from 'styled-components/native';
 
 interface ICharNameModalProps {
@@ -14,17 +14,19 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {filter, setFilter} = useContext(CharacterContext);
+  const {form, setForm} = useContext(CharFormContext);
   const {data, renderItem, pagination} = useFetchCharacters({
-    name: filter.name,
+    name: form.name,
   });
   const onInputChange = (name: string) => {
-    setFilter({...filter, name: name});
+    setForm({...form, name: name});
   };
+
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
+      <BackButton onPress={() => setShown(false)} />
       <Box>
-        <Input onChange={onInputChange} value={filter.name} />
+        <Input onChange={onInputChange} value={form.name} />
 
         <List
           data={data?.characters.results}
