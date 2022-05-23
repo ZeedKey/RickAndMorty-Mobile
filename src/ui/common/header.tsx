@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {accent, font, lt_space, sizes} from '@theme';
 import {Pressable} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface IHeaderProps {
   title: string;

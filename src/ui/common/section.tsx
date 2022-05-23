@@ -5,12 +5,12 @@ import {Checkbox} from '@ui/common';
 
 export const Section: React.FC<{
   label: string;
-  isActive?: boolean;
+  isChecked?: boolean;
   onPress: () => void;
-}> = ({label, isActive, onPress}) => {
+}> = ({label, isChecked, onPress}) => {
   return (
     <StyledOption onPress={onPress}>
-      <Checkbox isActive={isActive} />
+      <Checkbox isChecked={isChecked} />
       <TextBox>
         <Label>{label}</Label>
       </TextBox>

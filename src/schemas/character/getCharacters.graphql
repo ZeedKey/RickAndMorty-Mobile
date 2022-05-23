@@ -3,10 +3,16 @@ query getCharacters(
   $species: String
   $page: Int
   $gender: String
+  $status: String
 ) {
   characters(
     page: $page
-    filter: { name: $name, species: $species, gender: $gender }
+    filter: {
+      name: $name
+      species: $species
+      gender: $gender
+      status: $status
+    }
   ) {
     info {
       pages

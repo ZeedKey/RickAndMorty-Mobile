@@ -1,35 +1,45 @@
 import {ICharacterFilter} from '@models';
 import {CharFormContext, ICharacterFilterState} from '@store';
 import {Multioption} from '@ui/common';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {CharacterOption as Option} from '../reusable/character-option';
 
 export const GenderOptions: React.FC = () => {
   const {form, setForm} = useContext(CharFormContext);
+  const [selectCounter, setSelectCounter] = useState<number>(0);
+
   const onPress = (name: keyof ICharacterFilterState) => {
-    setForm({...form, [name]: !form[name]});
+    if (!selectCounter) {
+      setForm({...form, [name]: !form[name]});
+      setSelectCounter(selectCounter + 1);
+    } else {
+      if (form[name]) {
+        setForm({...form, [name]: !form[name]});
+        setSelectCounter(selectCounter - 1);
+      }
+    }
   };
   return (
     <Multioption title="Gender">
       <Option
         label="Female"
-        isActive={form.isFemale}
+        isChecked={form.isFemale}
         onPress={() => onPress('isFemale')}
       />
       <Option
         label="Male"
-        isActive={form.isMale}
+        isChecked={form.isMale}
         onPress={() => onPress('isMale')}
       />
       <Option
         label="Genderless"
-        isActive={form.isGenderless}
+        isChecked={form.isGenderless}
         onPress={() => onPress('isGenderless')}
       />
       <Option
         label="Unknown"
-        isActive={form.isGenderUnknown}
-        onPress={() => onPress('isUnknown')}
+        isChecked={form.isGenderUnknown}
+        onPress={() => onPress('isGenderUnknown')}
       />
     </Multioption>
   );

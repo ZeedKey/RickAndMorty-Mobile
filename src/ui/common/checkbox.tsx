@@ -4,10 +4,10 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 interface ICheckBoxProps {
-  isActive?: boolean;
+  isChecked?: boolean;
 }
 
-export const Checkbox: React.FC<ICheckBoxProps> = ({isActive}) => {
+export const Checkbox: React.FC<ICheckBoxProps> = ({isChecked}) => {
   return (
     <StyledCheckBox
       disabled={true}
@@ -16,7 +16,7 @@ export const Checkbox: React.FC<ICheckBoxProps> = ({isActive}) => {
       onCheckColor="white"
       offAnimationType="fill"
       onTintColor={accent.indigo}
-      value={isActive}
+      value={isChecked}
     />
   );
 };

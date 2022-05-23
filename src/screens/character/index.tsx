@@ -9,10 +9,24 @@ import {CharFormProvider} from '@store';
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
   const [isFilterShown, setFilterShown] = useState<boolean>(false);
+
   const {data, renderItem, pagination} = useFetchCharacters({
     name: filter.name,
     species: filter.species,
+    gender:
+      (filter.isMale && 'male') ||
+      (filter.isFemale && 'female') ||
+      (filter.isGenderUnknown && 'unknown') ||
+      (filter.isGenderless && 'genderless') ||
+      '',
+    status:
+      (filter.isAlive && 'Alive') ||
+      (filter.isDead && 'Dead') ||
+      (filter.isUnknown && 'Unknown') ||
+      '',
+    page: 1,
   });
+
   const onHeaderClick = () => setFilterShown(true);
 
   return (

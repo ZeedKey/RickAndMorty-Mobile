@@ -214,6 +214,7 @@ export type GetCharactersQueryVariables = Exact<{
   species: InputMaybe<Scalars['String']>;
   page: InputMaybe<Scalars['Int']>;
   gender: InputMaybe<Scalars['String']>;
+  status: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -305,10 +306,10 @@ export type GetCharactersByIdQueryHookResult = ReturnType<typeof useGetCharacter
 export type GetCharactersByIdLazyQueryHookResult = ReturnType<typeof useGetCharactersByIdLazyQuery>;
 export type GetCharactersByIdQueryResult = Apollo.QueryResult<GetCharactersByIdQuery, GetCharactersByIdQueryVariables>;
 export const GetCharactersDocument = gql`
-    query getCharacters($name: String, $species: String, $page: Int, $gender: String) {
+    query getCharacters($name: String, $species: String, $page: Int, $gender: String, $status: String) {
   characters(
     page: $page
-    filter: {name: $name, species: $species, gender: $gender}
+    filter: {name: $name, species: $species, gender: $gender, status: $status}
   ) {
     info {
       pages
@@ -340,6 +341,7 @@ export const GetCharactersDocument = gql`
  *      species: // value for 'species'
  *      page: // value for 'page'
  *      gender: // value for 'gender'
+ *      status: // value for 'status'
  *   },
  * });
  */

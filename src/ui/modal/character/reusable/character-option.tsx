@@ -3,15 +3,15 @@ import {Section} from '@ui/common';
 import React, {useContext} from 'react';
 
 interface ICharOptionProps {
-  isActive: boolean;
+  isChecked: boolean;
   onPress: () => void;
   label: string;
 }
 
 export const CharacterOption: React.FC<ICharOptionProps> = ({
   label,
-  isActive,
+  isChecked,
   onPress,
 }) => {
-  return <Section label={label} isActive={isActive} onPress={onPress} />;
+  return <Section label={label} isChecked={isChecked} onPress={onPress} />;
 };

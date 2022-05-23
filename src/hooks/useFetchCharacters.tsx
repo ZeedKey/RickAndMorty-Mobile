@@ -1,20 +1,19 @@
 import {Character} from '@ui/badges';
 import React from 'react';
-import {Character as Model, useGetCharactersQuery} from 'src/schemas/generated';
+import {
+  Character as Model,
+  GetCharactersQueryVariables,
+  useGetCharactersQuery,
+} from 'src/schemas/generated';
 
-interface ICharHookProps {
-  name?: string;
-  page?: number;
-  species?: string;
-}
-
-export const useFetchCharacters = (props: ICharHookProps) => {
+export const useFetchCharacters = (props: GetCharactersQueryVariables) => {
   const {data, fetchMore} = useGetCharactersQuery({
     variables: {
       name: props?.name ?? '',
       page: props?.page ?? 1,
       species: props?.species ?? '',
-      gender: '',
+      gender: props.gender ?? '',
+      status: props.status ?? '',
     },
   });
   const renderItem = ({item}: {item: Model}) => <Character {...item} />;

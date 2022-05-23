@@ -19,12 +19,11 @@ interface IModalProps {
 export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   const {setFilter} = useContext(CharacterContext);
   const {form} = useContext(CharFormContext);
+
   const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
   const [isSpeciesModalShown, setSpeciesModalShown] = useState<boolean>(false);
 
-  const onApplyPressed = () => {
-    setFilter({...form});
-  };
+  const onApplyPressed = () => setFilter({...form});
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
