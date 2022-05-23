@@ -1,12 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import styled from 'styled-components/native';
-import {CharacterContext, CharFormContext, CharFormProvider} from '@store';
+import {CharacterContext, CharFormContext} from '@store';
 import {
   CharNameModal as NameModal,
   GenderOptions,
   NameOption,
+  SpeciesModal,
   SpeciesOption,
+  StatusOptions,
 } from '@ui/modal';
 
 interface IModalProps {
@@ -15,14 +17,13 @@ interface IModalProps {
 }
 
 export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
-  const {filter, setFilter} = useContext(CharacterContext);
+  const {setFilter} = useContext(CharacterContext);
   const {form} = useContext(CharFormContext);
   const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
   const [isSpeciesModalShown, setSpeciesModalShown] = useState<boolean>(false);
 
   const onApplyPressed = () => {
     setFilter({...form});
-    console.log(form);
   };
 
   return (
@@ -30,14 +31,15 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
       <ModalHeader title="Filter" onPress={onApplyPressed} />
       <Box>
         <NameOption onPress={() => setNameModalShown(true)} />
-        <SpeciesOption
-          isActive={!!form.species}
-          onPress={() => setSpeciesModalShown(true)}
-        />
+        <SpeciesOption onPress={() => setSpeciesModalShown(true)} />
         <GenderOptions />
-        {/* <StatusOptions onPress={onOptionPressed} /> */}
+        <StatusOptions />
       </Box>
       <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />
+      <SpeciesModal
+        isShown={isSpeciesModalShown}
+        setShown={setSpeciesModalShown}
+      />
     </ModalMenu>
   );
 };

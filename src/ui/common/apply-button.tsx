@@ -24,7 +24,7 @@ const Button = styled.TouchableOpacity`
 const Label = styled.Text`
   color: ${basic.white};
   font-family: ${font.bold};
-  font-size: ${sizes.s13};
+  font-size: ${sizes.s13}px;
   line-height: 18px;
   letter-spacing: ${lt_space.l7}px;
   text-align: center;

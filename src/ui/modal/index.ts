@@ -1,5 +1,5 @@
 export { CharNameModal } from "./character/inputs/name-input";
-export { CharSpeciesModal } from "./character/inputs/species-input";
+export { SpeciesModal } from "./character/inputs/species-input";
 export { GenderOptions } from "./character/lists/gender-list";
 export { StatusOptions } from "./character/lists/status-list";
 export { NameOption } from "./character/options/name-option";

@@ -30,7 +30,7 @@ const Box = styled.View`
 `
 const Airdate = styled.Text`
   font-family: ${font.regular};
-  font-size: ${sizes.s13};
+  font-size: ${sizes.s13}px;
   letter-spacing: -${lt_space.l7}px;
   color: ${basic.additional_text};
 `

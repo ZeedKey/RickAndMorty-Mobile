@@ -31,7 +31,7 @@ const Box = styled.Pressable`
 const Type = styled.Text`
   font-family: ${font.regular};
   font-size: ${sizes.s13}px;
-  letter-spacing: ${lt_space.l7};
+  letter-spacing: ${lt_space.l7}px;
   color: ${basic.additional_text};
 `;
 const Name = styled.Text`

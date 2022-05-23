@@ -1,20 +1,18 @@
+import {CharFormContext} from '@store';
 import {Option} from '@ui/common';
-import React from 'react';
+import React, {useContext} from 'react';
 
 interface ISpeciesOptionProps {
-  isActive: boolean;
   onPress: () => void;
 }
 
-export const SpeciesOption: React.FC<ISpeciesOptionProps> = ({
-  isActive,
-  onPress,
-}) => {
+export const SpeciesOption: React.FC<ISpeciesOptionProps> = ({onPress}) => {
+  const {form} = useContext(CharFormContext);
   return (
     <Option
       title="Species"
       body="Enter species"
-      isActive={isActive}
+      isActive={!!form.species}
       onPress={onPress}
     />
   );

@@ -19,7 +19,7 @@ const Button = styled.Pressable`
 `;
 const Label = styled.Text`
   font-family: ${font.regular};
-  font-size: ${sizes.s17};
+  font-size: ${sizes.s17}px;
   letter-spacing: -${lt_space.l7}px;
   color: ${accent.indigo};
   margin-left: 5.5px;
