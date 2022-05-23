@@ -2,19 +2,25 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {accent, font, lt_space, sizes} from '@theme';
 import {Pressable} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import CircleIcon from '../icons/circle';
 
 interface IHeaderProps {
   title: string;
   callback: () => void;
+  isFilterActive: boolean;
 }
 
-export const Header: React.FC<IHeaderProps> = ({title, callback}) => {
+export const Header: React.FC<IHeaderProps> = ({
+  title,
+  callback,
+  isFilterActive,
+}) => {
   return (
     <Box>
-      <Pressable onPress={callback}>
+      <Button onPress={callback}>
+        {isFilterActive && <CircleIcon />}
         <Label>Filter</Label>
-      </Pressable>
+      </Button>
       <Name>{title}</Name>
     </Box>
   );
@@ -33,10 +39,17 @@ const Label = styled.Text`
   font-size: ${sizes.s22}px;
   letter-spacing: ${lt_space.l34}px;
   line-height: 41px;
+  margin-left: 5px;
 `;
 const Name = styled.Text`
   font-family: ${font.bold};
   font-size: ${sizes.s40}px;
   letter-spacing: ${lt_space.l41}px;
   line-height: 41px;
+`;
+const Button = styled.Pressable`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 `;

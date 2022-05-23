@@ -6,7 +6,7 @@ import {
   useGetCharactersQuery,
 } from 'src/schemas/generated';
 
-export const useFetchCharacters = (props: GetCharactersQueryVariables) => {
+export const useFetchCharacters = (props: any) => {
   const {data, fetchMore} = useGetCharactersQuery({
     variables: {
       name: props?.name ?? '',

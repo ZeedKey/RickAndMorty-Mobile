@@ -21,7 +21,7 @@ export const Option: React.FC<IOptionProps> = ({
   return (
     <Box onPress={onPress}>
       <TextView>
-        <Checkbox isActive={isActive} />
+        <Checkbox isChecked={isActive} />
 
         <View>
           <Title>{title}</Title>

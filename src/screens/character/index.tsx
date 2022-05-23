@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {List, ModalMenu} from '@ui/common';
+import {List} from '@ui/common';
 import {useFetchCharacters} from '@hooks';
 import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
@@ -26,12 +26,15 @@ export const CharacterScreen = () => {
       '',
     page: 1,
   });
-
   const onHeaderClick = () => setFilterShown(true);
+  const isAnyTrue = !Object.values(filter).every(item => !!item === false);
 
   return (
     <CharFormProvider>
-      <MainLayout title="Characters" callback={onHeaderClick}>
+      <MainLayout
+        title="Characters"
+        callback={onHeaderClick}
+        isFilterActive={isAnyTrue}>
         <List
           data={data?.characters.results}
           renderItem={renderItem}

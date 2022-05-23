@@ -23,7 +23,10 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
   const [isSpeciesModalShown, setSpeciesModalShown] = useState<boolean>(false);
 
-  const onApplyPressed = () => setFilter({...form});
+  const onApplyPressed = () => {
+    setFilter({...form});
+    setShown(false);
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>

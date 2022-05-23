@@ -7,16 +7,22 @@ interface IMainLayoutProps {
   title: string;
   callback: () => void;
   children: React.ReactNode;
+  isFilterActive: boolean;
 }
 
 export const MainLayout: React.FC<IMainLayoutProps> = ({
   callback,
   children,
   title,
+  isFilterActive,
 }) => {
   return (
     <Box>
-      <Header title={title} callback={callback} />
+      <Header
+        title={title}
+        callback={callback}
+        isFilterActive={isFilterActive}
+      />
       {children}
     </Box>
   );

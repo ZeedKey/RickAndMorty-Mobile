@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 
 export interface ICharacterFilterState {
   name: string;
@@ -36,8 +36,10 @@ export const CharacterContext = createContext({
   filter: initialState,
   setFilter: (val: ICharacterFilterState) => {},
 });
+
 export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
   const [filter, setFilter] = useState(initialState);
+
   return (
     <CharacterContext.Provider
       value={{
