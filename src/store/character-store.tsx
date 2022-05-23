@@ -12,6 +12,8 @@ export interface ICharacterFilterState {
   isGenderUnknown: boolean;
   isApplied: boolean;
   isAnyChoosed: boolean;
+  isAnyGenderChoosed: boolean;
+  isAnyStatusChoosed: boolean;
 }
 
 const initialState: ICharacterFilterState = {
@@ -26,6 +28,8 @@ const initialState: ICharacterFilterState = {
   isGenderUnknown: false,
   isApplied: false,
   isAnyChoosed: false,
+  isAnyGenderChoosed: false,
+  isAnyStatusChoosed: false,
 };
 
 export const CharacterContext = createContext({

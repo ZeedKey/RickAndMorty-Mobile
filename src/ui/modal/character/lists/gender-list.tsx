@@ -6,19 +6,17 @@ import {CharacterOption as Option} from '../reusable/character-option';
 
 export const GenderOptions: React.FC = () => {
   const {form, setForm} = useContext(CharFormContext);
-  const [selectCounter, setSelectCounter] = useState<number>(0);
 
   const onPress = (name: keyof ICharacterFilterState) => {
-    if (!selectCounter) {
-      setForm({...form, [name]: !form[name]});
-      setSelectCounter(selectCounter + 1);
-    } else {
-      if (form[name]) {
-        setForm({...form, [name]: !form[name]});
-        setSelectCounter(selectCounter - 1);
-      }
+    if (!form.isAnyGenderChoosed || form[name]) {
+      setForm({
+        ...form,
+        isAnyGenderChoosed: !form.isAnyGenderChoosed,
+        [name]: !form[name],
+      });
     }
   };
+
   return (
     <Multioption title="Gender">
       <Option

@@ -13,6 +13,8 @@ const initialState: ICharacterFilterState = {
   isGenderUnknown: false,
   isApplied: false,
   isAnyChoosed: false,
+  isAnyGenderChoosed: false,
+  isAnyStatusChoosed: false,
 };
 
 export const CharFormContext = createContext({

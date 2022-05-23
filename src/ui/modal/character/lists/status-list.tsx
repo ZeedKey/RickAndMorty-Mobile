@@ -5,17 +5,14 @@ import {CharacterOption as Option} from '../reusable/character-option';
 
 export const StatusOptions: React.FC = () => {
   const {form, setForm} = useContext(CharFormContext);
-  const [selectCounter, setSelectCounter] = useState<number>(0);
 
   const onPress = (name: keyof ICharacterFilterState) => {
-    if (!selectCounter) {
-      setForm({...form, [name]: !form[name]});
-      setSelectCounter(selectCounter + 1);
-    } else {
-      if (form[name]) {
-        setForm({...form, [name]: !form[name]});
-        setSelectCounter(selectCounter - 1);
-      }
+    if (!form.isAnyStatusChoosed || form[name]) {
+      setForm({
+        ...form,
+        isAnyStatusChoosed: !form.isAnyStatusChoosed,
+        [name]: !form[name],
+      });
     }
   };
 
