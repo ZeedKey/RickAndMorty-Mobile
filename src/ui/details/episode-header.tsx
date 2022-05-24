@@ -1,14 +1,13 @@
-import { GetEpisodeByIdQuery } from 'src/schemas/generated'
-import { basic, font, lt_space, sizes } from '@theme'
-import {  View } from 'react-native'
-import React from 'react'
-import styled from 'styled-components/native'
+import {GetEpisodeByIdQuery} from 'src/schemas/generated';
+import {View} from 'react-native';
+import React from 'react';
+import styled from 'styled-components/native';
 
 interface IHeaderProps {
-  data?: GetEpisodeByIdQuery
+  data?: GetEpisodeByIdQuery;
 }
 
-export const EpisodeHeader: React.FC<IHeaderProps> = ({ data }) => {
+export const EpisodeHeader: React.FC<IHeaderProps> = ({data}) => {
   return (
     <View>
       <Box>
@@ -18,41 +17,41 @@ export const EpisodeHeader: React.FC<IHeaderProps> = ({ data }) => {
       </Box>
       <Title>Characters</Title>
     </View>
-  )
-}
+  );
+};
 
 const Box = styled.View`
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${basic.light_gray};
-`
+  background-color: ${props => props.theme.colors.basic.light_gray};
+`;
 const Airdate = styled.Text`
-  font-family: ${font.regular};
-  font-size: ${sizes.s13}px;
-  letter-spacing: -${lt_space.l7}px;
-  color: ${basic.additional_text};
-`
+  font-family: ${props => props.theme.fonts.regular};
+  font-size: ${props => props.theme.sizes.s13}px;
+  letter-spacing: -${props => props.theme.letterspacing.l7}px;
+  color: ${props => props.theme.colors.basic.additional_text};
+`;
 const Name = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s28}px;
-  letter-spacing: ${lt_space.l34}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s28}px;
+  letter-spacing: ${props => props.theme.letterspacing.l34}px;
   line-height: 41px;
-`
+`;
 const Episode = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s13}px;
-  letter-spacing: ${lt_space.l8}px;
-  color: ${basic.additional_text};
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s13}px;
+  letter-spacing: ${props => props.theme.letterspacing.l8}px;
+  color: ${props => props.theme.colors.basic.additional_text};
   text-transform: uppercase;
-`
+`;
 const Title = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s22}px;
-  letter-spacing: ${lt_space.l34}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s22}px;
+  letter-spacing: ${props => props.theme.letterspacing.l34}px;
   line-height: 41px;
   margin-bottom: -25px;
-  color: ${basic.additional_text};
+  color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
-`
+`;

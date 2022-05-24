@@ -1,5 +1,5 @@
 import CheckBox from '@react-native-community/checkbox';
-import {accent} from '@theme';
+import {theme} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -11,11 +11,11 @@ export const Checkbox: React.FC<ICheckBoxProps> = ({isChecked}) => {
   return (
     <StyledCheckBox
       disabled={true}
-      onFillColor={accent.indigo}
-      tintColor={accent.indigo}
+      onFillColor={theme.colors.accent.indigo}
+      tintColor={theme.colors.accent.indigo}
       onCheckColor="white"
       offAnimationType="fill"
-      onTintColor={accent.indigo}
+      onTintColor={theme.colors.accent.indigo}
       value={isChecked}
     />
   );

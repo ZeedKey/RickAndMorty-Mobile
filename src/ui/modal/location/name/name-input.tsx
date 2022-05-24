@@ -2,7 +2,6 @@ import {useFetchLocations} from '@hooks';
 import {LocationFormContext} from '@store';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
 import React, {useContext} from 'react';
-import {EpisodeFormContext} from 'src/store/form/episode-form-store';
 
 import styled from 'styled-components/native';
 

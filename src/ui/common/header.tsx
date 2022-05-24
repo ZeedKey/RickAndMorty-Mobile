@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {accent, font, lt_space, sizes} from '@theme';
 import CircleIcon from '../icons/circle';
 
 interface IHeaderProps {
@@ -33,17 +32,17 @@ const Box = styled.SafeAreaView`
 
 const Label = styled.Text`
   text-align: right;
-  color: ${accent.indigo};
-  font-family: ${font.bold};
-  font-size: ${sizes.s22}px;
-  letter-spacing: ${lt_space.l34}px;
+  color: ${props => props.theme.colors.accent.indigo};
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s22}px;
+  letter-spacing: ${props => props.theme.letterspacing.l34}px;
   line-height: 41px;
   margin-left: 5px;
 `;
 const Name = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s40}px;
-  letter-spacing: ${lt_space.l41}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s40}px;
+  letter-spacing: -${props => props.theme.letterspacing.l41}px;
   line-height: 41px;
 `;
 const Button = styled.Pressable`

@@ -1,4 +1,3 @@
-import {accent, font, graybase, lt_space} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 import {Checkbox} from '@ui/common';
@@ -27,8 +26,8 @@ const TextBox = styled.View`
   width: 100%;
 `;
 const Label = styled.Text`
-  font-family: ${font.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: 17px;
   line-height: 22px;
-  letter-spacing: ${lt_space.l41}px;
+  letter-spacing: ${props => props.theme.letterspacing.l41}px;
 `;

@@ -1,14 +1,14 @@
 import React, {useContext, useState} from 'react';
 import {MainLayout} from 'src/ui/layouts/MainLayout';
 import {List} from '@ui/common';
-import {useFetchLocations} from '@hooks';
+import {useFetchLocations, useModal} from '@hooks';
 import {LocationContext, LocationFormContextProvider} from '@store';
-import {LocationFilter} from './modal';
+import {LocationFilterModal as Filter} from './modal';
 import {getAnyChoosed} from '@utils';
 
 export const LocationScreen = () => {
   const {filter} = useContext(LocationContext);
-  const [isVisible, setVisible] = useState<boolean>(false);
+  const {isShown, setShown} = useModal();
 
   const {data, pagination, renderItem} = useFetchLocations({
     dimension: filter.dimension,
@@ -16,7 +16,7 @@ export const LocationScreen = () => {
     type: filter.type,
   });
 
-  const onHeaderClick = () => setVisible(true);
+  const onHeaderClick = () => setShown(true);
 
   return (
     <LocationFormContextProvider>
@@ -30,7 +30,7 @@ export const LocationScreen = () => {
           handlePage={pagination}
         />
       </MainLayout>
-      <LocationFilter isShown={isVisible} setShown={setVisible} />
+      <Filter isShown={isShown} setShown={setShown} />
     </LocationFormContextProvider>
   );
 };

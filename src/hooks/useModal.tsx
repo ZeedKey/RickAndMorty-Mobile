@@ -6,7 +6,7 @@ export const useModal = () => {
   return {
     isShown: isShown,
     setShown: setShown,
-    modalContent: (children: React.ReactNode) => (
+    Modal: ({children}) => (
       <ModalMenu showModal={isShown} setShowModal={setShown}>
         {children}
       </ModalMenu>

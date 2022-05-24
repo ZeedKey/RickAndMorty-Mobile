@@ -1,7 +1,6 @@
 import React from 'react';
 import {Header} from '@ui/common';
 import styled from 'styled-components/native';
-import {basic} from '@theme';
 
 interface IMainLayoutProps {
   title: string;
@@ -30,5 +29,4 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
 
 const Box = styled.SafeAreaView`
   height: 100%;
-  background-color: ${basic.light_gray};
 `;

@@ -1,13 +1,11 @@
 import {DetailOption} from '@ui/common';
 import React from 'react';
 import {
-  Character,
   GetCharactersByIdQuery,
   useGetCharactersByIdQuery,
 } from 'src/schemas/generated';
 import styled from 'styled-components/native';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {basic, font, lt_space, sizes} from '@theme';
 
 interface IHeaderProps {
   data: GetCharactersByIdQuery | undefined;
@@ -45,7 +43,7 @@ const Icon = styled.Image`
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
-  border: 5px solid ${basic.white};
+  border: 5px solid ${props => props.theme.colors.basic.white};
 `;
 const Box = styled.View`
   margin-bottom: -25px;
@@ -55,36 +53,36 @@ const Head = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${basic.light_gray};
+  background-color: ${props => props.theme.colors.basic.light_gray};
 `;
 const Status = styled.Text`
-  font-family: ${font.regular};
-  font-size: ${sizes.s13}px;
-  letter-spacing: ${lt_space.l7}px;
-  color: ${basic.additional_text};
+  font-family: ${props => props.theme.fonts.regular};
+  font-size: ${props => props.theme.sizes.s13}px;
+  letter-spacing: ${props => props.theme.letterspacing.l7}px;
+  color: ${props => props.theme.colors.basic.additional_text};
 `;
 const Name = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s28}px;
-  letter-spacing: ${lt_space.l34}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s28}px;
+  letter-spacing: ${props => props.theme.letterspacing.l34}px;
   line-height: 41px;
 `;
 const Species = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s13}px;
-  letter-spacing: ${lt_space.l8}px;
-  color: ${basic.additional_text};
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s13}px;
+  letter-spacing: ${props => props.theme.letterspacing.l8}px;
+  color: ${props => props.theme.colors.basic.additional_text};
   text-transform: uppercase;
 `;
 const Title = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s22}px;
-  letter-spacing: ${lt_space.l34}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s28}px;
+  letter-spacing: ${props => props.theme.letterspacing.l34}px;
   line-height: 41px;
-  color: ${basic.additional_text};
+  color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
 `;
 const Tail = styled.View`
-  background-color: ${basic.white};
+  background-color: ${props => props.theme.colors.basic.white};
   margin-left: 19px;
 `;

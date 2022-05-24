@@ -1,30 +1,25 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {LocationContext, LocationFormContext} from '@store';
-import {
-  DimensionModal,
-  LocDimensionOption,
-  LocNameOption,
-  LocTypeOption,
-  NameModal,
-  TypeModal,
-} from '@ui/modal';
+import styled from 'styled-components/native';
 
 interface IModalProps {
   isShown: boolean;
   setShown: (isShown: boolean) => void;
 }
 
-export const LocationFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
+export const LocationFilterModal: React.FC<IModalProps> = ({
+  isShown,
+  setShown,
+}) => {
   const {setFilter} = useContext(LocationContext);
   const {form} = useContext(LocationFormContext);
 
-  const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
-  const [isTypeModalShown, setTypeModalShown] = useState<boolean>(false);
-  const [isDimensionModalShown, setDimensionModalShown] =
-    useState<boolean>(false);
-
   const onApplyPressed = () => {
+    setFilter({...form});
+    setShown(false);
+  };
+  const onClearPressed = () => {
     setFilter({...form});
     setShown(false);
   };
@@ -32,17 +27,14 @@ export const LocationFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader onPress={onApplyPressed} />
-
-      <LocNameOption onPress={() => setNameModalShown(true)} />
-      <LocTypeOption onPress={() => setTypeModalShown(true)} />
-      <LocDimensionOption onPress={() => setDimensionModalShown(true)} />
-
-      <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />
-      <TypeModal isShown={isTypeModalShown} setShown={setTypeModalShown} />
-      <DimensionModal
-        isShown={isDimensionModalShown}
-        setShown={setDimensionModalShown}
-      />
+      <Title>423423423432</Title>
+      {/* <NameFilter />
+      <TypeFilter />
+      <DimensionFilter /> */}
     </ModalMenu>
   );
 };
+
+const Title = styled.Text`
+  color: black;
+`;

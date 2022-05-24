@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
-import {basic} from '@theme';
 import {KeyboardAvoidingView} from 'react-native';
 
 interface IModalMenu {
@@ -41,7 +40,7 @@ const StyledModal = styled(Modal)`
   margin: 0;
   justify-content: flex-start;
   height: 100px;
-  background-color: ${basic.white};
+  background-color: ${props => props.theme.colors.basic.white};
 `;
 
 const Container = styled.SafeAreaView`
@@ -49,5 +48,5 @@ const Container = styled.SafeAreaView`
   height: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background-color: ${basic.white};
+  background-color: ${props => props.theme.colors.basic.white};
 `;

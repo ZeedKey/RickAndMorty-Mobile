@@ -1,16 +1,25 @@
-export { CharNameModal } from "./character/inputs/name-input";
-export { SpeciesModal } from "./character/inputs/species-input";
-export { GenderOptions } from "./character/lists/gender-list";
-export { StatusOptions } from "./character/lists/status-list";
-export { NameOption } from "./character/options/name-option";
-export { SpeciesOption } from "./character/options/species-option";
-export { EpisodeModal } from "./episode/inputs/episode-input";
-export { EpisodeNameModal } from "./episode/inputs/name-input";
-export { EpisodeOption } from "./episode/options/episode-option";
-export { NameOption as EpisodeNameOption} from "./episode/options/name-option";
-export { NameModal } from "./location/inputs/name-input";
-export { LocDimensionOption } from "./location/options/dimension-option";
-export { LocNameOption } from "./location/options/name-option";
-export { LocTypeOption } from "./location/options/type-option";
-export { DimensionModal } from "./location/inputs/dimension-input";
-export { TypeModal } from "./location/inputs/type-input";
+export { CharNameModal } from "./character/name/name-input";
+export { NameOption } from "./character/name/name-option";
+export { SpeciesModal } from "./character/species/species-input";
+export { SpeciesOption } from "./character/species/species-option";
+export { EpisodeModal } from "./episode/episode/episode-input";
+export { EpisodeOption } from "./episode/episode/episode-option";
+export { EpisodeNameModal } from "./episode/name/name-input";
+export { NameOption as EpisodeNameOption} from "./episode/name/name-option";
+export { DimensionModal } from "./location/dimension/dimension-input";
+export { LocDimensionOption } from "./location/dimension/dimension-option";
+export { NameModal } from "./location/name/name-input";
+export { LocNameOption } from "./location/name/name-option";
+export { TypeModal } from "./location/type/type-input";
+export { LocTypeOption } from "./location/type/type-option";
+
+export * from "./location/dimension"
+export * from "./location/type"
+export * from "./character/gender"
+export * from "./character/status"
+export * from "./character/species"
+
+export {EpisodeFilter} from "./episode/episode"
+export {NameFilter as LocationNameFilter} from "./location/name"
+export {NameFilter as EpisodeNameFilter} from "./episode/name"
+export {NameFilter as CharacterNameFilter} from "./character/name"

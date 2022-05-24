@@ -10,7 +10,7 @@ interface IFilterHeaderProps {
 export const ModalHeader: React.FC<IFilterHeaderProps> = ({onPress}) => {
   return (
     <Box>
-      <ClearButton />
+      {/* <ClearButton /> */}
       <Title>Filter</Title>
       <ApplyButton onPress={onPress} />
     </Box>

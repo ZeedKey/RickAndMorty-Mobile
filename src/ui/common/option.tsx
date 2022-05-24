@@ -1,4 +1,3 @@
-import {basic, font, graybase, lt_space, sizes} from '@theme';
 import React from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
@@ -46,8 +45,8 @@ const Box = styled.Pressable`
 
   border-top-width: 0.5px;
   border-bottom-width: 0.5px;
-  border-top-color: ${graybase.gray_3};
-  border-bottom-color: ${graybase.gray_3};
+  border-top-color: ${props => props.theme.colors.graybase.gray_3};
+  border-bottom-color: ${props => props.theme.colors.graybase.gray_3};
 `;
 const TextView = styled.View`
   display: flex;
@@ -55,14 +54,14 @@ const TextView = styled.View`
   align-items: center;
 `;
 const Title = styled.Text`
-  font-family: ${font.bold};
-  font-size: ${sizes.s17}px;
-  letter-spacing: ${lt_space.l41}px;
+  font-family: ${props => props.theme.fonts.bold};
+  font-size: ${props => props.theme.sizes.s17}px;
+  letter-spacing: ${props => props.theme.letterspacing.l41}px;
   line-height: 22px;
 `;
 const Body = styled.Text`
-  font-family: ${font.regular};
-  font-size: ${sizes.s13}px;
-  color: ${basic.additional_text};
-  letter-spacing: ${lt_space.l7}px;
+  font-family: ${props => props.theme.fonts.regular};
+  font-size: ${props => props.theme.sizes.s13}px;
+  color: ${props => props.theme.colors.basic.additional_text};
+  letter-spacing: ${props => props.theme.letterspacing.l7}px;
 `;

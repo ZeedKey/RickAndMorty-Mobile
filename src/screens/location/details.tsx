@@ -4,7 +4,6 @@ import React from 'react';
 import {View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {
-  Location,
   Character as Model,
   useGetLocationByIdQuery,
 } from 'src/schemas/generated';

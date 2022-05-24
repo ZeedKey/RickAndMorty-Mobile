@@ -1,25 +1,20 @@
-import { basic } from '@theme'
-import _ from 'lodash'
-import React from 'react'
-import { ListRenderItem, StyleProp, ViewStyle } from 'react-native'
-import styled from 'styled-components/native'
-
-const StyledList = styled.FlatList`
-  height: 100%;
-  background-color: ${basic.white};
-`
+import {theme} from '@theme';
+import _ from 'lodash';
+import React from 'react';
+import {ListRenderItem, StyleProp, ViewStyle} from 'react-native';
+import styled from 'styled-components/native';
 
 interface IListProps {
-  data: any[] | undefined
-  renderItem: ListRenderItem<any>
-  headerStyle?: StyleProp<ViewStyle>
-  columns?: number
-  handlePage?: () => void
-  setPage?: (page: number) => void
+  data: any[] | undefined;
+  renderItem: ListRenderItem<any>;
+  headerStyle?: StyleProp<ViewStyle>;
+  columns?: number;
+  handlePage?: () => void;
+  setPage?: (page: number) => void;
   header?:
     | React.ComponentType<any>
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | null
+    | null;
 }
 
 export const List: React.FC<IListProps> = props => {
@@ -32,7 +27,7 @@ export const List: React.FC<IListProps> = props => {
       ListHeaderComponent={props.header}
       renderItem={props.renderItem}
       style={{
-        backgroundColor: basic.white,
+        backgroundColor: theme.colors.basic.white,
       }}
       contentContainerStyle={{
         paddingBottom: 40,
@@ -51,5 +46,10 @@ export const List: React.FC<IListProps> = props => {
         }
       }
     />
-  )
-}
+  );
+};
+
+const StyledList = styled.FlatList`
+  height: 100%;
+  background-color: ${props => props.theme.colors.basic.white};
+`;

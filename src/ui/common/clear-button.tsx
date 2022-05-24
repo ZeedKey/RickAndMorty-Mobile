@@ -1,9 +1,13 @@
-import {accent} from '@theme';
+import React from 'react';
 import styled from 'styled-components/native';
 
-export const ClearButton = () => {
+interface IClearButtonProps {
+  onPress: () => void;
+}
+
+export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {
   return (
-    <Button>
+    <Button onPress={onPress}>
       <Label>Clear</Label>
     </Button>
   );
@@ -11,5 +15,5 @@ export const ClearButton = () => {
 
 const Button = styled.TouchableOpacity``;
 const Label = styled.Text`
-  color: ${accent.indigo};
+  color: ${props => props.theme.colors.accent.indigo};
 `;

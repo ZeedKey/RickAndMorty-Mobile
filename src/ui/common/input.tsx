@@ -1,4 +1,3 @@
-import {graybase} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 import Dictation from '../icons/dictation';
@@ -34,12 +33,11 @@ const Box = styled.View`
   padding-right: 11px;
   padding-bottom: 5;
   padding-top: 5px;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin: 8.5px 19px;
-  background-color: ${graybase.gray_6};
+  background-color: ${props => props.theme.colors.graybase.gray_6};
   border-radius: 10px;
 `;
 const StyledInput = styled.TextInput`
