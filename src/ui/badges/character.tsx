@@ -11,6 +11,7 @@ export const Character: React.FC<schema.Character> = ({
   id,
 }) => {
   const navigation = useNavigation();
+  
   const pushToDetails = () =>
     navigation.navigate(Routes.CharacterDetails, {
       character: id,

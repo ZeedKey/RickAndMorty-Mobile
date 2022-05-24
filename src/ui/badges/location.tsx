@@ -6,10 +6,12 @@ import styled from 'styled-components/native';
 
 export const Location: React.FC<schema.Location> = ({type, id, name}) => {
   const navigation = useNavigation();
+
   const pushToDetails = () =>
     navigation.navigate(Routes.LocationDetails, {
       location: id,
     });
+
   return (
     <Box onPress={pushToDetails}>
       <Type>{type}</Type>

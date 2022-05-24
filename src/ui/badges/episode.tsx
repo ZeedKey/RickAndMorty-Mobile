@@ -12,10 +12,12 @@ export const Episode: React.FC<schema.Episode> = ({
   id,
 }) => {
   const navigation = useNavigation();
+  
   const pushToDetails = () =>
     navigation.navigate(Routes.EpisodeDetails, {
       episode: id,
     });
+
   return (
     <Box onPress={pushToDetails}>
       <Episodes>{episode}</Episodes>
