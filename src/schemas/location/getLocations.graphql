@@ -1,6 +1,14 @@
-query getLocations($name: String, $page: Int) {
-   locations(page: $page, filter: { name: $name }) {
-    info{
+query getLocations(
+  $name: String
+  $page: Int
+  $dimension: String
+  $type: String
+) {
+  locations(
+    page: $page
+    filter: {name: $name, type: $type, dimension: $dimension}
+  ) {
+    info {
       pages
       next
     }

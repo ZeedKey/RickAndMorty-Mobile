@@ -246,6 +246,8 @@ export type GetLocationByIdQuery = { __typename?: 'Query', location: { __typenam
 export type GetLocationsQueryVariables = Exact<{
   name: InputMaybe<Scalars['String']>;
   page: InputMaybe<Scalars['Int']>;
+  dimension: InputMaybe<Scalars['String']>;
+  type: InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -491,8 +493,11 @@ export type GetLocationByIdQueryHookResult = ReturnType<typeof useGetLocationByI
 export type GetLocationByIdLazyQueryHookResult = ReturnType<typeof useGetLocationByIdLazyQuery>;
 export type GetLocationByIdQueryResult = Apollo.QueryResult<GetLocationByIdQuery, GetLocationByIdQueryVariables>;
 export const GetLocationsDocument = gql`
-    query getLocations($name: String, $page: Int) {
-  locations(page: $page, filter: {name: $name}) {
+    query getLocations($name: String, $page: Int, $dimension: String, $type: String) {
+  locations(
+    page: $page
+    filter: {name: $name, type: $type, dimension: $dimension}
+  ) {
     info {
       pages
       next
@@ -520,6 +525,8 @@ export const GetLocationsDocument = gql`
  *   variables: {
  *      name: // value for 'name'
  *      page: // value for 'page'
+ *      dimension: // value for 'dimension'
+ *      type: // value for 'type'
  *   },
  * });
  */
