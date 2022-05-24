@@ -7,14 +7,20 @@ export enum Routes {
   EpisodeScreen = 'Episodes',
   CharacterScreen = 'Characters',
   LocationScreen = 'Locations',
+
+  EpisodeStack = 'Episodes ',
+  CharacterStack = 'Characters ',
+  LocationStack = 'Locations ',
+
   MainNavigator = 'MainNavigator',
-  CharacterDetailsScreen = 'CharacterDetailsScreen',
-  EpisodeDetailsScreen = 'EpisodeDetailsScreen',
-  LocationDetailsScreen = 'LocationDetailsScreen',
-  Filter = 'Filter',
-  Option = 'Option',
-  NameOption = 'Name',
-  SpeciesOption = 'Species',
+
+  CharacterDetails = 'CharacterDetails',
+  EpisodeDetails = 'EpisodeDetails',
+  LocationDetails = 'LocationDetails',
+
+  CharacterFilter = 'CharacterFilter',
+  LocationFilter = 'LocationFilter',
+  EpisodeFilter = 'EpisodeFilter',
 }
 
 export const useNavigation = () =>

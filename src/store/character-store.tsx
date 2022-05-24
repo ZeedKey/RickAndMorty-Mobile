@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 
 export interface ICharacterFilterState {
   name: string;
@@ -12,6 +12,8 @@ export interface ICharacterFilterState {
   isGenderUnknown: boolean;
   isApplied: boolean;
   isAnyChoosed: boolean;
+  isAnyGenderChoosed: boolean;
+  isAnyStatusChoosed: boolean;
 }
 
 const initialState: ICharacterFilterState = {
@@ -26,14 +28,18 @@ const initialState: ICharacterFilterState = {
   isGenderUnknown: false,
   isApplied: false,
   isAnyChoosed: false,
+  isAnyGenderChoosed: false,
+  isAnyStatusChoosed: false,
 };
 
 export const CharacterContext = createContext({
   filter: initialState,
   setFilter: (val: ICharacterFilterState) => {},
 });
+
 export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
   const [filter, setFilter] = useState(initialState);
+
   return (
     <CharacterContext.Provider
       value={{

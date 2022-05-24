@@ -30,6 +30,6 @@ const Title = styled.Text`
   margin-bottom: 8.5px;
   color: ${basic.additional_text};
   font-family: ${font.regular};
-  font-size: ${sizes.s15};
+  font-size: ${sizes.s15}px;
   letter-spacing: -${lt_space.l7}px;
 `

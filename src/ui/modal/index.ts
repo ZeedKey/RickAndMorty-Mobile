@@ -1,0 +1,10 @@
+export { CharNameModal } from "./character/inputs/name-input";
+export { SpeciesModal } from "./character/inputs/species-input";
+export { GenderOptions } from "./character/lists/gender-list";
+export { StatusOptions } from "./character/lists/status-list";
+export { NameOption} from "./character/options/name-option";
+export { SpeciesOption } from "./character/options/species-option";
+export { EpisodeModal } from "./episode/inputs/episode-input";
+export { EpisodeNameModal } from "./episode/inputs/name-input";
+export { EpisodeOption } from "./episode/options/episode-option";
+export { NameOption as EpisodeNameOption } from "./episode/options/name-option";
