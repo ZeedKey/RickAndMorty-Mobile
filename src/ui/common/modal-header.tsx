@@ -3,14 +3,13 @@ import styled from 'styled-components/native';
 import {ApplyButton} from './apply-button';
 
 interface IFilterHeaderProps {
-  title: string;
   onPress?: () => void;
 }
 
-export const ModalHeader: React.FC<IFilterHeaderProps> = ({title, onPress}) => {
+export const ModalHeader: React.FC<IFilterHeaderProps> = ({onPress}) => {
   return (
     <Box>
-      <Title>{title}</Title>
+      <Title>Filter</Title>
       <ApplyButton onPress={onPress} />
     </Box>
   );

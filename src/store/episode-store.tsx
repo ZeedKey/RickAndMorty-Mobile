@@ -3,15 +3,11 @@ import React, {createContext, useState} from 'react';
 export interface IEpisodeFilterState {
   name: string;
   episode: string;
-  isApplied: boolean;
-  isAnyChoosed: boolean;
 }
 
 const initialState: IEpisodeFilterState = {
   name: '',
   episode: '',
-  isApplied: false,
-  isAnyChoosed: false,
 };
 
 export const EpisodeContext = createContext({

@@ -1,7 +1,6 @@
 import {CharFormContext, ICharacterFilterState} from '@store';
-import {Multioption} from '@ui/common';
+import {Multioption, Section as Option} from '@ui/common';
 import React, {useContext, useState} from 'react';
-import {CharacterOption as Option} from '../reusable/character-option';
 
 export const StatusOptions: React.FC = () => {
   const {form, setForm} = useContext(CharFormContext);

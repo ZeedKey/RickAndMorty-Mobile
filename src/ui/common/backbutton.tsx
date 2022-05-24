@@ -1,6 +1,5 @@
 import {accent, font, lt_space, sizes} from '@theme';
 import React from 'react';
-import {useNavigation} from 'src/navigation/routes';
 import styled from 'styled-components/native';
 import {BackArrow} from '../icons/backarrow';
 

@@ -30,13 +30,14 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader title="Filter" onPress={onApplyPressed} />
+      <ModalHeader onPress={onApplyPressed} />
       <Box>
         <NameOption onPress={() => setNameModalShown(true)} />
         <SpeciesOption onPress={() => setSpeciesModalShown(true)} />
         <GenderOptions />
         <StatusOptions />
       </Box>
+
       <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />
       <SpeciesModal
         isShown={isSpeciesModalShown}

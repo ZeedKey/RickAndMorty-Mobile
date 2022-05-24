@@ -16,21 +16,21 @@ export const CharacterStack = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Character.Group>
-        <Character.Screen
-          name={Routes.CharacterScreen}
-          component={CharacterScreen}
-        />
-        <Character.Screen
-          name={Routes.CharacterDetails}
-          component={CharacterDetails}
-          options={{
-            headerShown: true,
-            headerLeft: () => <BackButton onPress={() => nav.goBack()} />,
-            headerTitleAlign: 'center',
-          }}
-        />
-      </Character.Group>
+      <Character.Screen
+        name={Routes.CharacterScreen}
+        component={CharacterScreen}
+      />
+      <Character.Screen
+        name={Routes.CharacterDetails}
+        component={CharacterDetails}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <BackButton onPress={() => nav.navigate(Routes.CharacterScreen)} />
+          ),
+          headerTitleAlign: 'center',
+        }}
+      />
     </Character.Navigator>
   );
 };

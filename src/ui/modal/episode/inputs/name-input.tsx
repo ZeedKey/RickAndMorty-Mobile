@@ -1,21 +1,21 @@
-import {useFetchCharacters} from '@hooks';
-import {CharFormContext} from '@store';
+import {useFetchEpisodes} from '@hooks';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
 import React, {useContext} from 'react';
+import {EpisodeFormContext} from 'src/store/form/episode-form-store';
 
 import styled from 'styled-components/native';
 
-interface ICharNameModalProps {
+interface IEpisodeModalProps {
   isShown: boolean;
   setShown: (isShown: boolean) => void;
 }
 
-export const CharNameModal: React.FC<ICharNameModalProps> = ({
+export const EpisodeNameModal: React.FC<IEpisodeModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useContext(CharFormContext);
-  const {data, renderItem, pagination} = useFetchCharacters({
+  const {form, setForm} = useContext(EpisodeFormContext);
+  const {data, renderItem, pagination} = useFetchEpisodes({
     name: form.name,
   });
 
@@ -25,12 +25,13 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <BackButton onPress={() => setShown(false)} />
       <Box>
+        <BackButton onPress={() => setShown(false)} />
         <Input onChange={onInputChange} value={form.name} />
 
         <List
-          data={data?.characters.results}
+          columns={1}
+          data={data?.episodes.results}
           renderItem={renderItem}
           handlePage={pagination}
         />

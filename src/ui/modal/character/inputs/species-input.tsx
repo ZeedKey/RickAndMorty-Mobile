@@ -18,6 +18,7 @@ export const SpeciesModal: React.FC<ISpeciesModalProps> = ({
   const {data, renderItem, pagination} = useFetchCharacters({
     species: form.species,
   });
+
   const onInputChange = (species: string) => {
     setForm({...form, species: species});
   };

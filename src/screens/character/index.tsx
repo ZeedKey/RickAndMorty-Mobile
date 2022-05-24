@@ -8,7 +8,7 @@ import {CharFormProvider} from '@store';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
-  const [isFilterShown, setFilterShown] = useState<boolean>(false);
+  const [isVisible, setVisible] = useState<boolean>(false);
 
   const {data, renderItem, pagination} = useFetchCharacters({
     name: filter.name,
@@ -26,7 +26,8 @@ export const CharacterScreen = () => {
       '',
     page: 1,
   });
-  const onHeaderClick = () => setFilterShown(true);
+
+  const onHeaderClick = () => setVisible(true);
   const isAnyTrue = !Object.values(filter).every(item => !!item === false);
 
   return (
@@ -40,7 +41,7 @@ export const CharacterScreen = () => {
           renderItem={renderItem}
           handlePage={pagination}
         />
-        <CharacterFilter isShown={isFilterShown} setShown={setFilterShown} />
+        <CharacterFilter isShown={isVisible} setShown={setVisible} />
       </MainLayout>
     </CharFormProvider>
   );

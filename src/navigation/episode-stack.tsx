@@ -23,7 +23,9 @@ export const EpisodeStack = () => {
         component={EpisodeDetails}
         options={{
           headerShown: true,
-          headerLeft: () => <BackButton onPress={() => nav.goBack()} />,
+          headerLeft: () => (
+            <BackButton onPress={() => nav.navigate(Routes.EpisodeScreen)} />
+          ),
           headerTitleAlign: 'center',
         }}
       />

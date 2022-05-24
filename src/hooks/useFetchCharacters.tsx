@@ -1,10 +1,6 @@
 import {Character} from '@ui/badges';
 import React from 'react';
-import {
-  Character as Model,
-  GetCharactersQueryVariables,
-  useGetCharactersQuery,
-} from 'src/schemas/generated';
+import {Character as Model, useGetCharactersQuery} from 'src/schemas/generated';
 
 export const useFetchCharacters = (props: any) => {
   const {data, fetchMore} = useGetCharactersQuery({

@@ -27,10 +27,12 @@ export const TabBar = () => {
             focused ? <GhostActive /> : <GhostInactive />,
         }}
       />
+      
       <Tab.Screen
         name={Routes.LocationStack}
         component={LocationStack}
         options={{
+          headerTitle: 'Locations',
           tabBarIcon: ({focused}) =>
             focused ? <PlanetActive /> : <PlanetInactive />,
         }}
@@ -40,7 +42,7 @@ export const TabBar = () => {
         name={Routes.EpisodeStack}
         component={EpisodeStack}
         options={{
-          headerTitle: 'Episode',
+          headerTitle: 'Episodes',
           tabBarIcon: ({focused}) => (focused ? <TvActive /> : <TvInactive />),
         }}
       />
