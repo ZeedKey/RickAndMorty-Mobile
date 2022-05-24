@@ -1,20 +1,19 @@
 import {basic, font, graybase, sizes, lt_space} from '@theme';
 import React from 'react';
-import {Pressable, StyleSheet, Text} from 'react-native';
 import {Routes, useNavigation} from 'src/navigation/routes';
 import * as schema from 'src/schemas/generated';
 import styled from 'styled-components/native';
 
-export const Location: React.FC<schema.Location> = props => {
+export const Location: React.FC<schema.Location> = ({type, id, name}) => {
   const navigation = useNavigation();
   const pushToDetails = () =>
     navigation.navigate(Routes.LocationDetails, {
-      location: {...props},
+      location: id,
     });
   return (
     <Box onPress={pushToDetails}>
-      <Type>{props.type}</Type>
-      <Name>{props.name}</Name>
+      <Type>{type}</Type>
+      <Name>{name}</Name>
     </Box>
   );
 };

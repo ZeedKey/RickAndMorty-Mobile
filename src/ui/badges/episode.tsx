@@ -5,10 +5,17 @@ import * as schema from 'src/schemas/generated';
 import {lt_space} from 'src/theme/letterspacing';
 import styled from 'styled-components/native';
 
-export const Episode: React.FC<schema.Episode> = ({episode, name, air_date}) => {
+export const Episode: React.FC<schema.Episode> = ({
+  episode,
+  name,
+  air_date,
+  id,
+}) => {
   const navigation = useNavigation();
   const pushToDetails = () =>
-    navigation.navigate(Routes.EpisodeDetails, {episode: {...props}});
+    navigation.navigate(Routes.EpisodeDetails, {
+      episode: id,
+    });
   return (
     <Box onPress={pushToDetails}>
       <Episodes>{episode}</Episodes>

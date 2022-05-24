@@ -12,10 +12,10 @@ import {Character} from '@ui/badges';
 import {LocationHeader} from '@ui/details';
 
 export const LocationDetails: React.FC = () => {
-  const route: RouteProp<{params: {location: Location}}, 'params'> = useRoute();
+  const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
 
   const {data} = useGetLocationByIdQuery({
-    variables: {id: route.params.location.id},
+    variables: {id: route.params.id},
   });
 
   const renderItem = ({item}: {item: Model}) => <Character {...item} />;

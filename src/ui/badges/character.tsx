@@ -4,20 +4,25 @@ import * as schema from 'src/schemas/generated';
 import {basic, font, graybase, sizes} from '@theme';
 import styled from 'styled-components/native';
 
-export const Character: React.FC<schema.Character> = props => {
+export const Character: React.FC<schema.Character> = ({
+  image,
+  status,
+  name,
+  id,
+}) => {
   const navigation = useNavigation();
   const pushToDetails = () =>
     navigation.navigate(Routes.CharacterDetails, {
-      character: {...props},
+      character: id,
     });
 
   return (
     <Box onPress={pushToDetails}>
-      <BadgeIcon source={{uri: props.image}} />
+      <BadgeIcon source={{uri: image}} />
 
       <TextBox>
-        <Status>{props.status}</Status>
-        <Name>{props.name}</Name>
+        <Status>{status}</Status>
+        <Name>{name}</Name>
       </TextBox>
     </Box>
   );
