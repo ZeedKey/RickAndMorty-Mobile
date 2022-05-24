@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {ApplyButton} from './apply-button';
+import {ClearButton} from '@ui/common';
 
 interface IFilterHeaderProps {
   onPress?: () => void;
@@ -9,6 +10,7 @@ interface IFilterHeaderProps {
 export const ModalHeader: React.FC<IFilterHeaderProps> = ({onPress}) => {
   return (
     <Box>
+      <ClearButton />
       <Title>Filter</Title>
       <ApplyButton onPress={onPress} />
     </Box>

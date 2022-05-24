@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {accent, font, lt_space, sizes} from '@theme';
-import {Pressable} from 'react-native';
 import CircleIcon from '../icons/circle';
 
 interface IHeaderProps {

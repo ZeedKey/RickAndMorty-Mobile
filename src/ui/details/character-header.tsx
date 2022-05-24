@@ -14,11 +14,12 @@ interface IHeaderProps {
 }
 
 export const CharacterHeader: React.FC<IHeaderProps> = () => {
-  const route: RouteProp<{params: {character: Character}}, 'params'> =
-    useRoute();
+  const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
+
   const {data} = useGetCharactersByIdQuery({
-    variables: {id: route.params.character.id},
+    variables: {id: route.params.id},
   });
+
   return (
     <Box>
       <Head>

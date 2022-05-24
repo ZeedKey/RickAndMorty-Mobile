@@ -32,6 +32,7 @@ export const LocationFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader onPress={onApplyPressed} />
+
       <LocNameOption onPress={() => setNameModalShown(true)} />
       <LocTypeOption onPress={() => setTypeModalShown(true)} />
       <LocDimensionOption onPress={() => setDimensionModalShown(true)} />

@@ -1,6 +1,6 @@
 import { GetEpisodeByIdQuery } from 'src/schemas/generated'
-import { basic, font, graybase, lt_space, sizes } from '@theme'
-import { StyleSheet, Text, View } from 'react-native'
+import { basic, font, lt_space, sizes } from '@theme'
+import {  View } from 'react-native'
 import React from 'react'
 import styled from 'styled-components/native'
 
