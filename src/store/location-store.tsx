@@ -1,9 +1,30 @@
-import { ICharacterFilter } from '@models'
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
+import React, {createContext, useState} from 'react';
 
-const filter = useState({
+export interface ILocationFilterState {
+  name: string;
+  type: string;
+  dimension: string;
+}
+
+const initialState: ILocationFilterState = {
   name: '',
-  species: '',
-})
+  type: '',
+  dimension: '',
+};
 
-export const LocationContext = createContext(filter)
+export const LocationContext = createContext({
+  filter: initialState,
+  setFilter: (val: ILocationFilterState) => {},
+});
+export const LocationProvider = ({children}: {children: React.ReactNode}) => {
+  const [filter, setFilter] = useState(initialState);
+  return (
+    <LocationContext.Provider
+      value={{
+        filter,
+        setFilter,
+      }}>
+      {children}
+    </LocationContext.Provider>
+  );
+};

@@ -10,9 +10,9 @@ interface IEpHookProps {
 export const useFetchEpisodes = ({name, episode}: IEpHookProps) => {
   const {data, fetchMore} = useGetEpisodesQuery({
     variables: {
-      name: name ?? '',
-      episode: episode ?? '',
-      page: 1,
+      page: 0,
+      name: name || '',
+      episode: episode || '',
     },
   });
   const renderItem = ({item}: {item: Model}) => <Episode {...item} />;

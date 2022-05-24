@@ -10,6 +10,7 @@ export const EpisodeFormContext = createContext({
   form: initialState,
   setForm: (val: IEpisodeFilterState) => {},
 });
+
 export const EpisodeFormContextProvider = ({
   children,
 }: {

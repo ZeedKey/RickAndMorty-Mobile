@@ -1,4 +1,3 @@
-export * from './useFetchCharacters'
-export * from './useFetchEpisodes'
-export * from './useFetchLocations'
-export * from './useFilter'
+export * from './useFetchCharacters';
+export * from './useFetchEpisodes';
+export * from './useFetchLocations';

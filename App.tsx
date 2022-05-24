@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {RootNavigation} from 'src/navigation/root';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import {CharacterProvider} from './src/store/character-store';
-import {EpisodeProvider} from '@store';
+import {EpisodeProvider, LocationProvider} from '@store';
 
 const API_URL = 'https://rickandmortyapi.com/graphql';
 
@@ -26,14 +26,16 @@ const client = new ApolloClient({
 
 export const App = () => {
   return (
-    <EpisodeProvider>
-      <CharacterProvider>
-        <ApolloProvider client={client}>
-          <NavigationContainer>
-            <RootNavigation />
-          </NavigationContainer>
-        </ApolloProvider>
-      </CharacterProvider>
-    </EpisodeProvider>
+    <LocationProvider>
+      <EpisodeProvider>
+        <CharacterProvider>
+          <ApolloProvider client={client}>
+            <NavigationContainer>
+              <RootNavigation />
+            </NavigationContainer>
+          </ApolloProvider>
+        </CharacterProvider>
+      </EpisodeProvider>
+    </LocationProvider>
   );
 };

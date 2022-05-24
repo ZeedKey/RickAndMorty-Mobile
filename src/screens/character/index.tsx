@@ -5,6 +5,7 @@ import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
 import {CharacterFilter} from './modal';
 import {CharFormProvider} from '@store';
+import {getAnyChoosed} from '@utils';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
@@ -28,14 +29,13 @@ export const CharacterScreen = () => {
   });
 
   const onHeaderClick = () => setVisible(true);
-  const isAnyTrue = !Object.values(filter).every(item => !!item === false);
 
   return (
     <CharFormProvider>
       <MainLayout
         title="Characters"
         callback={onHeaderClick}
-        isFilterActive={isAnyTrue}>
+        isFilterActive={getAnyChoosed(filter)}>
         <List
           data={data?.characters.results}
           renderItem={renderItem}

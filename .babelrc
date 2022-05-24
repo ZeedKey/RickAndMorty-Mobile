@@ -16,6 +16,7 @@
           "@ui/details": "./src/ui/details",
           "@ui/modal": "./src/ui/modal",
           "@screens": "./src/screens",
+          "@utils": "./src/utils",
           "@hooks": "./src/hooks",
           "@models": "./src/models",
           "@theme": "./src/theme",
