@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components/native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {View} from 'react-native';
+import {Body1, Caption1, Headline2, Headline2 as Name, Tagline2} from '@theme';
 
 interface IHeaderProps {
   data: GetCharactersByIdQuery | undefined;
@@ -53,30 +54,14 @@ const Head = styled.View`
   align-items: center;
   background-color: ${props => props.theme.colors.basic.light_gray};
 `;
-const Status = styled.Text`
-  font-family: ${props => props.theme.fonts.regular};
-  font-size: ${props => props.theme.sizes.s13}px;
-  letter-spacing: ${props => props.theme.letterspacing.l7}px;
-  color: ${props => props.theme.colors.basic.additional_text};
-`;
-const Name = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s28}px;
-  letter-spacing: ${props => props.theme.letterspacing.l34}px;
-  line-height: 41px;
-`;
-const Species = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s13}px;
+const Status = styled(Caption1)`
   letter-spacing: ${props => props.theme.letterspacing.l8}px;
   color: ${props => props.theme.colors.basic.additional_text};
-  text-transform: uppercase;
 `;
-const Title = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s28}px;
-  letter-spacing: ${props => props.theme.letterspacing.l34}px;
-  line-height: 41px;
+const Species = styled(Tagline2)`
+  color: ${props => props.theme.colors.basic.additional_text};
+`;
+const Title = styled(Headline2)`
   color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
 `;
