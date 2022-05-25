@@ -30,19 +30,17 @@ const client = new ApolloClient({
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaProvider>
-        <LocationProvider>
-          <EpisodeProvider>
-            <CharacterProvider>
-              <ApolloProvider client={client}>
-                <NavigationContainer>
-                  <RootNavigation />
-                </NavigationContainer>
-              </ApolloProvider>
-            </CharacterProvider>
-          </EpisodeProvider>
-        </LocationProvider>
-      </SafeAreaProvider>
+      <LocationProvider>
+        <EpisodeProvider>
+          <CharacterProvider>
+            <ApolloProvider client={client}>
+              <NavigationContainer>
+                <RootNavigation />
+              </NavigationContainer>
+            </ApolloProvider>
+          </CharacterProvider>
+        </EpisodeProvider>
+      </LocationProvider>
     </ThemeProvider>
   );
 };

@@ -1,8 +1,8 @@
-import * as React from 'react'
-import Svg, { SvgProps, Path } from 'react-native-svg'
+import * as React from 'react';
+import Svg, {Path} from 'react-native-svg';
 
-const SearchIcon = (props: SvgProps) => (
-  <Svg width={14} height={14} fill="none" {...props}>
+const SearchIcon = () => (
+  <Svg width={14} height={14} fill="none">
     <Path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -11,6 +11,6 @@ const SearchIcon = (props: SvgProps) => (
       fillOpacity={0.36}
     />
   </Svg>
-)
+);
 
-export default SearchIcon
+export default SearchIcon;

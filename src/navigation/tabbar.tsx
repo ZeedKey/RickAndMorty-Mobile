@@ -1,14 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {Routes} from './routes';
-import {GhostActive, GhostInactive} from 'src/ui/icons/ghost';
-import {PlanetActive, PlanetInactive} from 'src/ui/icons/planet';
-import {TvActive, TvInactive} from 'src/ui/icons/tv';
 import {CharacterStack} from './character-stack';
 import {LocationStack} from './location-stack';
 import {EpisodeStack} from './episode-stack';
+import {GhostIcon, PlanetIcon, TvIcon} from '@ui/icons';
+import {theme} from '@theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,17 +21,25 @@ export const TabBar = () => {
         options={{
           headerTitle: 'Characters',
           tabBarIcon: ({focused}) =>
-            focused ? <GhostActive /> : <GhostInactive />,
+            focused ? (
+              <GhostIcon />
+            ) : (
+              <GhostIcon color={theme.colors.basic.gray} />
+            ),
         }}
       />
-      
+
       <Tab.Screen
         name={Routes.LocationStack}
         component={LocationStack}
         options={{
           headerTitle: 'Locations',
           tabBarIcon: ({focused}) =>
-            focused ? <PlanetActive /> : <PlanetInactive />,
+            focused ? (
+              <PlanetIcon />
+            ) : (
+              <PlanetIcon color={theme.colors.basic.gray} />
+            ),
         }}
       />
 
@@ -42,7 +48,8 @@ export const TabBar = () => {
         component={EpisodeStack}
         options={{
           headerTitle: 'Episodes',
-          tabBarIcon: ({focused}) => (focused ? <TvActive /> : <TvInactive />),
+          tabBarIcon: ({focused}) =>
+            focused ? <TvIcon /> : <TvIcon color={theme.colors.basic.gray} />,
         }}
       />
     </Tab.Navigator>

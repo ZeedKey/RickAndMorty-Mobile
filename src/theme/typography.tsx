@@ -11,6 +11,7 @@ export const Headline2 = styled.Text`
   font-size: ${props => props.theme.sizes.s28}px;
   letter-spacing: ${props => props.theme.letterspacing.l34}px;
 `;
+
 export const Headline3 = styled.Text`
   font-family: ${props => props.theme.fonts.bold};
   font-size: ${props => props.theme.sizes.s22}px;
