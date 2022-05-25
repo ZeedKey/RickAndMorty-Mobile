@@ -1,7 +1,6 @@
-import {useFetchLocations} from '@hooks';
-import {LocationFormContext} from '@store';
+import {useFetchLocations, useLocationFilter} from '@hooks';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
-import React, {useContext} from 'react';
+import React from 'react';
 
 import styled from 'styled-components/native';
 
@@ -14,7 +13,7 @@ export const TypeModal: React.FC<ILocationModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useContext(LocationFormContext);
+  const {form, setForm} = useLocationFilter();
   const {data, renderItem, pagination} = useFetchLocations({
     type: form.type,
   });
