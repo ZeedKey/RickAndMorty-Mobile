@@ -18,7 +18,6 @@ const Button = styled.TouchableOpacity`
   padding: 5px 12px;
   background-color: ${props => props.theme.colors.accent.indigo};
   width: 70px;
-  flex-grow: 0;
 `;
 const Label = styled.Text`
   color: ${props => props.theme.colors.basic.white};

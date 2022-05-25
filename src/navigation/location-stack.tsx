@@ -23,11 +23,10 @@ export const LocationStack = () => {
         name={Routes.LocationDetails}
         component={LocationDetails}
         options={{
-          headerShown: true,
-          headerLeft: () => (
-            <BackButton onPress={() => nav.navigate(Routes.LocationScreen)} />
+          header: ({navigation}) => (
+            <BackButton onPress={() => navigation.goBack()} />
           ),
-          headerTitleAlign: 'center',
+          headerShown: true,
         }}
       />
     </Location.Navigator>

@@ -1,3 +1,4 @@
+import {Body2, Caption1} from '@theme';
 import React from 'react';
 import {Routes, useNavigation} from 'src/navigation/routes';
 import * as schema from 'src/schemas/generated';
@@ -8,7 +9,7 @@ export const Location: React.FC<schema.Location> = ({type, id, name}) => {
 
   const pushToDetails = () =>
     navigation.navigate(Routes.LocationDetails, {
-      location: id,
+      id,
     });
 
   return (
@@ -28,15 +29,11 @@ const Box = styled.Pressable`
   height: 80px;
   padding: 12px;
 `;
-const Type = styled.Text`
-  font-family: ${props => props.theme.fonts.regular};
-  font-size: ${props => props.theme.sizes.s13}px;
+const Type = styled(Caption1)`
   letter-spacing: ${props => props.theme.letterspacing.l7}px;
   color: ${props => props.theme.colors.basic.additional_text};
 `;
-const Name = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s17}px;
+const Name = styled(Body2)`
   letter-spacing: ${props => props.theme.letterspacing.l41}px;
   flex: 1;
 `;

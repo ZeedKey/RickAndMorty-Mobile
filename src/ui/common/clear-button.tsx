@@ -13,7 +13,9 @@ export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {
   );
 };
 
-const Button = styled.TouchableOpacity``;
+const Button = styled.TouchableOpacity`
+  width: 70px;
+`;
 const Label = styled.Text`
   color: ${props => props.theme.colors.accent.indigo};
 `;

@@ -34,8 +34,8 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
       <Box>
         <NameOption onPress={() => setNameModalShown(true)} />
         <SpeciesOption onPress={() => setSpeciesModalShown(true)} />
-        <GenderOptions />
         <StatusOptions />
+        <GenderOptions />
       </Box>
 
       <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />

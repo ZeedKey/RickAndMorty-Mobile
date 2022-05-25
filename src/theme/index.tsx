@@ -33,6 +33,7 @@ export const theme = {
   letterspacing: {
     none: 0,
     l41: 0.41,
+    l38: 0.38,
     l35: 0.35,
     l34: 0.34,
     l3: 0.3,
@@ -53,3 +54,5 @@ export const theme = {
     s11: 11,
   },
 };
+
+export * from './typography';

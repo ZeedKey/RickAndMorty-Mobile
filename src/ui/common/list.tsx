@@ -33,8 +33,9 @@ export const List: React.FC<IListProps> = props => {
         paddingBottom: 40,
       }}
       ListHeaderComponentStyle={
-        props.headerStyle || {
-          marginBottom: 17,
+        props.headerStyle ||
+        {
+          // marginBottom: 17,
         }
       }
       numColumns={props.columns ?? 2}

@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext, useState} from 'react';
 
 export interface ICharacterFilterState {
   name: string;
@@ -15,37 +15,37 @@ export interface ICharacterFilterState {
   isAnyGenderChoosed: boolean;
   isAnyStatusChoosed: boolean;
 }
+interface IInitialStateProps {
+  filter: ICharacterFilterState;
+  setFilter: React.Dispatch<React.SetStateAction<ICharacterFilterState>>;
+}
 
-const initialState: ICharacterFilterState = {
-  name: '',
-  species: '',
-  isAlive: false,
-  isDead: false,
-  isUnknown: false,
-  isFemale: false,
-  isMale: false,
-  isGenderless: false,
-  isGenderUnknown: false,
-  isApplied: false,
-  isAnyChoosed: false,
-  isAnyGenderChoosed: false,
-  isAnyStatusChoosed: false,
+const initialState: IInitialStateProps = {
+  filter: {
+    name: '',
+    species: '',
+    isAlive: false,
+    isDead: false,
+    isUnknown: false,
+    isFemale: false,
+    isMale: false,
+    isGenderless: false,
+    isGenderUnknown: false,
+    isApplied: false,
+    isAnyChoosed: false,
+    isAnyGenderChoosed: false,
+    isAnyStatusChoosed: false,
+  },
+  setFilter: () => null,
 };
 
-export const CharacterContext = createContext({
-  filter: initialState,
-  setFilter: (val: ICharacterFilterState) => {},
-});
+export const CharacterContext = createContext(initialState);
 
 export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
-  const [filter, setFilter] = useState(initialState);
+  const [filter, setFilter] = useState(initialState.filter);
 
   return (
-    <CharacterContext.Provider
-      value={{
-        filter,
-        setFilter,
-      }}>
+    <CharacterContext.Provider value={{filter, setFilter}}>
       {children}
     </CharacterContext.Provider>
   );

@@ -12,10 +12,10 @@ import {Character} from '@ui/badges';
 import {EpisodeHeader} from '@ui/details';
 
 export const EpisodeDetails: React.FC = () => {
-  const route: RouteProp<{params: {episode: Episode}}, 'params'> = useRoute();
+  const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
 
   const {data} = useGetEpisodeByIdQuery({
-    variables: {id: route.params.episode.id},
+    variables: {id: route.params.id},
   });
 
   const renderItem = ({item}: {item: Model}) => {

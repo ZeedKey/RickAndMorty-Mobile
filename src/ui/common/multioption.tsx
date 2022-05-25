@@ -14,8 +14,6 @@ const Box = styled.View`
   margin-bottom: 30px;
 `;
 const OptionList = styled.View`
-  display: flex;
-  flex-direction: column;
   border-top-width: 0.5px;
   border-bottom-width: 0.5px;
   border-top-color: ${props => props.theme.colors.graybase.gray_3};

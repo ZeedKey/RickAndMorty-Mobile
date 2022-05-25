@@ -6,7 +6,6 @@ import {Routes} from './routes';
 import {GhostActive, GhostInactive} from 'src/ui/icons/ghost';
 import {PlanetActive, PlanetInactive} from 'src/ui/icons/planet';
 import {TvActive, TvInactive} from 'src/ui/icons/tv';
-import {CharacterScreen, EpisodeScreen, LocationScreen} from '@screens';
 import {CharacterStack} from './character-stack';
 import {LocationStack} from './location-stack';
 import {EpisodeStack} from './episode-stack';

@@ -50,8 +50,6 @@ const Title = styled.Text`
   font-family: ${props => props.theme.fonts.bold};
   font-size: ${props => props.theme.sizes.s22}px;
   letter-spacing: ${props => props.theme.letterspacing.l34}px;
-  line-height: 41px;
-  margin-bottom: -25px;
   color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
 `;

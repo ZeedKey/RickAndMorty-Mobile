@@ -1,3 +1,4 @@
+import {Body2, Caption1} from '@theme';
 import React from 'react';
 import {Routes, useNavigation} from 'src/navigation/routes';
 import * as schema from 'src/schemas/generated';
@@ -14,7 +15,7 @@ export const Character: React.FC<schema.Character> = ({
 
   const pushToDetails = () =>
     navigation.navigate(Routes.CharacterDetails, {
-      character: id,
+      id,
     });
 
   return (
@@ -34,24 +35,20 @@ const Box = styled.Pressable`
   border-radius: 8px;
   margin-right: 17px;
   width: 167px;
-  border-color: ${props => props.theme.colors.accent};
+  border-color: ${props => props.theme.colors.graybase.gray_4};
 `;
 const TextBox = styled.View`
   padding: 12px;
 `;
-const Status = styled.Text`
-  font-family: ${props => props.theme.fonts.regular};
-  font-size: ${props => props.theme.sizes.s13}px;
+const Status = styled(Caption1)`
   color: ${props => props.theme.colors.basic.additional_text};
 `;
-const Name = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s17};
+const Name = styled(Body2)`
   flex: 1;
 `;
 const BadgeIcon = styled.Image`
   height: 164px;
-  width: 167px;
+  width: 166px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 `;

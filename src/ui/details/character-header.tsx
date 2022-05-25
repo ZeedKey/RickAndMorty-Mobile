@@ -6,6 +6,7 @@ import {
 } from 'src/schemas/generated';
 import styled from 'styled-components/native';
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {View} from 'react-native';
 
 interface IHeaderProps {
   data: GetCharactersByIdQuery | undefined;
@@ -19,7 +20,7 @@ export const CharacterHeader: React.FC<IHeaderProps> = () => {
   });
 
   return (
-    <Box>
+    <View>
       <Head>
         <Icon source={{uri: data?.character.image}} />
         <Status>{data?.character.status}</Status>
@@ -34,7 +35,7 @@ export const CharacterHeader: React.FC<IHeaderProps> = () => {
         <DetailOption title="Location" body={data?.character.location?.name} />
       </Tail>
       <Title>Episodes</Title>
-    </Box>
+    </View>
   );
 };
 
@@ -44,9 +45,6 @@ const Icon = styled.Image`
   height: 150px;
   margin-bottom: 20px;
   border: 5px solid ${props => props.theme.colors.basic.white};
-`;
-const Box = styled.View`
-  margin-bottom: -25px;
 `;
 const Head = styled.View`
   padding: 20px;

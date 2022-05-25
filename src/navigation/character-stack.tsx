@@ -25,9 +25,7 @@ export const CharacterStack = () => {
         component={CharacterDetails}
         options={{
           headerShown: true,
-          headerLeft: () => (
-            <BackButton onPress={() => nav.navigate(Routes.CharacterScreen)} />
-          ),
+          headerLeft: () => <BackButton onPress={() => nav.goBack()} />,
           headerTitleAlign: 'center',
         }}
       />

@@ -11,10 +11,9 @@ import {TitleLayout} from '@ui/layouts';
 import {CharacterHeader} from '@ui/details';
 
 export const CharacterDetails: React.FC = () => {
-  const route: RouteProp<{params: {character: Character}}, 'params'> =
-    useRoute();
+  const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
   const {data} = useGetCharactersByIdQuery({
-    variables: {id: route.params.character.id},
+    variables: {id: route.params.id},
   });
 
   const renderItem = ({item}: {item: Model}) => <Episode {...item} />;

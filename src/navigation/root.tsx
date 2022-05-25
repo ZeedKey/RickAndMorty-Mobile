@@ -7,12 +7,8 @@ const Stack = createNativeStackNavigator();
 
 export const RootNavigation = () => {
   return (
-    <React.Fragment>
-      <Stack.Navigator
-        screenOptions={{headerShown: false}}
-        initialRouteName={Routes.MainNavigator}>
-        <Stack.Screen name={Routes.MainNavigator} component={TabBar} />
-      </Stack.Navigator>
-    </React.Fragment>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name={Routes.MainNavigator} component={TabBar} />
+    </Stack.Navigator>
   );
 };
