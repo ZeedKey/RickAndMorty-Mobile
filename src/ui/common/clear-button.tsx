@@ -12,7 +12,7 @@ export const ClearButton: React.FC<IClearButtonProps> = ({
   isVisible,
 }) => {
   return (
-    <Button onPress={onPress}>
+    <Button onPress={onPress} disabled={!isVisible}>
       <Label isVisible={isVisible}>Clear</Label>
     </Button>
   );

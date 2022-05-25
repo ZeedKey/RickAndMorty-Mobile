@@ -25,19 +25,23 @@ export const DimensionModal: React.FC<IEpisodeModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <Box>
+      <Header>
         <BackButton onPress={() => setShown(false)} />
         <Input onChange={onInputChange} value={form.dimension} />
+      </Header>
 
-        <List
-          columns={2}
-          data={data?.locations.results}
-          renderItem={renderItem}
-          handlePage={pagination}
-        />
-      </Box>
+      <List
+        columns={2}
+        data={data?.locations.results}
+        renderItem={renderItem}
+        handlePage={pagination}
+      />
     </ModalMenu>
   );
 };
 
-const Box = styled.SafeAreaView``;
+const Header = styled.View`
+  padding: 8.5px 19px;
+  border-bottom-width: 0.5px;
+  border-color: ${props => props.theme.colors.graybase.gray_5};
+`;

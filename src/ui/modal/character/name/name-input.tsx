@@ -25,18 +25,22 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <BackButton onPress={() => setShown(false)} />
-      <Box>
+      <Header>
+        <BackButton onPress={() => setShown(false)} />
         <Input onChange={onInputChange} value={form.name} />
+      </Header>
 
-        <List
-          data={data?.characters.results}
-          renderItem={renderItem}
-          handlePage={pagination}
-        />
-      </Box>
+      <List
+        data={data?.characters.results}
+        renderItem={renderItem}
+        handlePage={pagination}
+      />
     </ModalMenu>
   );
 };
 
-const Box = styled.SafeAreaView``;
+const Header = styled.View`
+  padding: 8.5px 19px;
+  border-bottom-width: 0.5px;
+  border-color: ${props => props.theme.colors.graybase.gray_5};
+`;

@@ -29,6 +29,7 @@ export const Input: React.FC<IInputProps> = ({
 };
 
 const Box = styled.View`
+  margin-top: 20px;
   padding-left: 11px;
   padding-right: 11px;
   padding-bottom: 5;
@@ -36,7 +37,6 @@ const Box = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 8.5px 19px;
   background-color: ${props => props.theme.colors.graybase.gray_6};
   border-radius: 10px;
 `;

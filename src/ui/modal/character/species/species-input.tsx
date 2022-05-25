@@ -25,18 +25,21 @@ export const SpeciesModal: React.FC<ISpeciesModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <BackButton onPress={() => setShown(false)} />
-      <Box>
+      <Header>
+        <BackButton onPress={() => setShown(false)} />
         <Input onChange={onInputChange} value={form.species} />
-
-        <List
-          data={data?.characters.results}
-          renderItem={renderItem}
-          handlePage={pagination}
-        />
-      </Box>
+      </Header>
+      <List
+        data={data?.characters.results}
+        renderItem={renderItem}
+        handlePage={pagination}
+      />
     </ModalMenu>
   );
 };
 
-const Box = styled.SafeAreaView``;
+const Header = styled.View`
+  padding: 8.5px 19px;
+  border-bottom-width: 0.5px;
+  border-color: ${props => props.theme.colors.graybase.gray_5};
+`;
