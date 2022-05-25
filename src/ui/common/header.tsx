@@ -1,3 +1,4 @@
+import {Headline1 as Name, Headline3} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 import CircleIcon from '../icons/circle';
@@ -30,20 +31,11 @@ const Box = styled.SafeAreaView`
   padding-bottom: 10px;
 `;
 
-const Label = styled.Text`
+const Label = styled(Headline3)`
   text-align: right;
   color: ${props => props.theme.colors.accent.indigo};
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s22}px;
   letter-spacing: ${props => props.theme.letterspacing.l34}px;
-  line-height: 41px;
   margin-left: 5px;
-`;
-const Name = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s40}px;
-  letter-spacing: -${props => props.theme.letterspacing.l41}px;
-  line-height: 41px;
 `;
 const Button = styled.Pressable`
   display: flex;

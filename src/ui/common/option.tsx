@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {ArrowIcon} from '../icons/arrow';
 import {Checkbox} from '@ui/common';
+import {Body2} from '@theme';
 
 interface IOptionProps {
   title: string;
@@ -53,11 +54,8 @@ const TextView = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-const Title = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s17}px;
+const Title = styled(Body2)`
   letter-spacing: ${props => props.theme.letterspacing.l41}px;
-  line-height: 22px;
 `;
 const Body = styled.Text`
   font-family: ${props => props.theme.fonts.regular};

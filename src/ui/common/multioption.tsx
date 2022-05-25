@@ -1,3 +1,4 @@
+import {Body3} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -19,11 +20,10 @@ const OptionList = styled.View`
   border-top-color: ${props => props.theme.colors.graybase.gray_3};
   border-bottom-color: ${props => props.theme.colors.graybase.gray_3};
 `;
-const Title = styled.Text`
+const Title = styled(Body3)`
   margin-left: 19px;
   margin-bottom: 8.5px;
   color: ${props => props.theme.colors.basic.additional_text};
   font-family: ${props => props.theme.fonts.regular};
-  font-size: ${props => props.theme.sizes.s15}px;
   letter-spacing: -${props => props.theme.letterspacing.l7}px;
 `;

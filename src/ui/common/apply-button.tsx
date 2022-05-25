@@ -1,3 +1,4 @@
+import {Caption1} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -19,11 +20,9 @@ const Button = styled.TouchableOpacity`
   background-color: ${props => props.theme.colors.accent.indigo};
   width: 70px;
 `;
-const Label = styled.Text`
+const Label = styled(Caption1)`
   color: ${props => props.theme.colors.basic.white};
   font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s13}px;
-  line-height: 18px;
   letter-spacing: ${props => props.theme.letterspacing.l7}px;
   text-align: center;
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {ApplyButton} from './apply-button';
 import {ClearButton} from '@ui/common';
+import {Body3} from '@theme';
 
 interface IFilterHeaderProps {
   onPress?: () => void;
@@ -24,11 +25,9 @@ const Box = styled.View`
   justify-content: space-between;
   margin-bottom: 40px;
 `;
-const Title = styled.Text`
+const Title = styled(Body3)`
   flex-grow: 1;
   text-align: center;
-  font-family: ${props => props.theme.fonts.bold};
-  font-size: ${props => props.theme.sizes.s15}px;
   letter-spacing: ${props => props.theme.letterspacing.l24}px;
   text-align: center;
 `;

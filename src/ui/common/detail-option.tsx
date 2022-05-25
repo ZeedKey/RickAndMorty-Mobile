@@ -1,3 +1,4 @@
+import {Body2, Body3} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -20,17 +21,13 @@ export const DetailOption: React.FC<IDetailOptionProps> = ({
   );
 };
 
-const Title = styled.Text`
-  font-family: ${props => props.theme.fonts.bold};
-  color: ${props => props.theme.colors.basic.black};
-  letter-spacing: -${props => props.theme.letterspacing.l41}px;
-  font-size: ${props => props.theme.sizes.s17}px;
+const Title = styled(Body2)`
+  letter-spacing: -${props => props.theme.letterspacing.l38}px;
 `;
-const Body = styled.Text`
+const Body = styled(Body3)`
   font-family: ${props => props.theme.fonts.regular};
   color: ${props => props.theme.colors.basic.additional_text};
-  letter-spacing: -${props => props.theme.letterspacing.l41}px;
-  font-size: ${props => props.theme.sizes.s15}px;
+  letter-spacing: -${props => props.theme.letterspacing.l38}px;
 `;
 const Box = styled.Pressable`
   padding-top: 8.5px;

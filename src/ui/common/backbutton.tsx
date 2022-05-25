@@ -1,3 +1,4 @@
+import {Body2} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 import {BackArrow} from '../icons/backarrow';
@@ -15,9 +16,8 @@ const Button = styled.Pressable`
   display: flex;
   flex-direction: row;
 `;
-const Label = styled.Text`
+const Label = styled(Body2)`
   font-family: ${props => props.theme.fonts.regular};
-  font-size: ${props => props.theme.sizes.s17}px;
   letter-spacing: ${props => props.theme.letterspacing.l7}px;
   color: ${props => props.theme.colors.accent.indigo};
   margin-left: 5.5px;

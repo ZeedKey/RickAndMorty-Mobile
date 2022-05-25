@@ -1,3 +1,4 @@
+import {Body2} from '@theme';
 import React from 'react';
 import styled from 'styled-components/native';
 
@@ -16,6 +17,7 @@ export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {
 const Button = styled.TouchableOpacity`
   width: 70px;
 `;
-const Label = styled.Text`
+const Label = styled(Body2)`
+  font-family: ${props => props.theme.fonts.regular};
   color: ${props => props.theme.colors.accent.indigo};
 `;
