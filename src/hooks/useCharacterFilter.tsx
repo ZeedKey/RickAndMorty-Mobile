@@ -5,15 +5,16 @@ export const useCharacterFilter = () => {
   const {setFilter, filter} = useContext(CharacterContext);
   const {form, setForm} = useContext(CharFormContext);
 
-  const onClearPressed = () => {
+  const resetFilter = () => {
     setFilter({});
     setForm({});
   };
+
   return {
-    filter: filter,
-    setFilter: setFilter,
-    form: form,
-    setForm: setForm,
-    reset: () => onClearPressed(),
+    filter,
+    setFilter,
+    form,
+    setForm,
+    reset: () => resetFilter(),
   };
 };

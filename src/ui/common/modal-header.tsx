@@ -7,15 +7,17 @@ import {Body3} from '@theme';
 interface IFilterHeaderProps {
   onApply?: () => void;
   onClear?: () => void;
+  isActive: boolean;
 }
 
 export const ModalHeader: React.FC<IFilterHeaderProps> = ({
   onApply,
   onClear,
+  isActive,
 }) => {
   return (
     <Box>
-      <ClearButton onPress={onClear} />
+      <ClearButton onPress={onClear} isVisible={isActive} />
       <Title>Filter</Title>
       <ApplyButton onPress={onApply} />
     </Box>

@@ -6,6 +6,7 @@ import {
   TypeFilter,
 } from '@ui/modal';
 import {useLocationFilter} from '@hooks';
+import {getAnyChoosed} from '@utils';
 
 interface IModalProps {
   isShown: boolean;
@@ -25,7 +26,11 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onApply={onApplyPressed} onClear={reset} />
+      <ModalHeader
+        onApply={onApplyPressed}
+        onClear={reset}
+        isActive={false}
+      />
       <NameFilter />
       <TypeFilter />
       <DimensionFilter />

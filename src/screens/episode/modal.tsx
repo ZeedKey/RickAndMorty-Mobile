@@ -2,6 +2,7 @@ import React from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {EpisodeFilter, EpisodeNameFilter as NameFilter} from '@ui/modal';
 import {useEpisodeFilter} from '@hooks';
+import {getAnyChoosed} from '@utils';
 
 interface IModalProps {
   isShown: boolean;
@@ -21,7 +22,11 @@ export const EpisodeFilterModal: React.FC<IModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onApply={onApplyPressed} onClear={reset} />
+      <ModalHeader
+        onApply={onApplyPressed}
+        onClear={reset}
+        isActive={getAnyChoosed(form)}
+      />
       <NameFilter />
       <EpisodeFilter />
     </ModalMenu>

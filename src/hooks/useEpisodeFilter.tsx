@@ -5,15 +5,16 @@ export const useEpisodeFilter = () => {
   const {setFilter, filter} = useContext(EpisodeContext);
   const {form, setForm} = useContext(EpisodeFormContext);
 
-  const onClearPressed = () => {
+  const resetFilter = () => {
     setFilter({});
     setForm({});
   };
+
   return {
-    filter: filter,
-    setFilter: setFilter,
-    form: form,
-    setForm: setForm,
-    reset: () => onClearPressed(),
+    filter,
+    setFilter,
+    form,
+    setForm,
+    reset: () => resetFilter(),
   };
 };

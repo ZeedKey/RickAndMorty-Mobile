@@ -5,15 +5,16 @@ export const useLocationFilter = () => {
   const {setFilter, filter} = useContext(LocationContext);
   const {form, setForm} = useContext(LocationFormContext);
 
-  const onClearPressed = () => {
+  const resetFilter = () => {
     setFilter({});
     setForm({});
   };
+
   return {
-    filter: filter,
-    setFilter: setFilter,
-    form: form,
-    setForm: setForm,
-    reset: () => onClearPressed(),
+    filter,
+    setFilter,
+    form,
+    setForm,
+    reset: resetFilter,
   };
 };

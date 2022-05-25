@@ -7,6 +7,7 @@ import {
   StatusOptions,
 } from '@ui/modal';
 import {useCharacterFilter} from '@hooks';
+import {getAnyChoosed} from '@utils';
 
 interface IModalProps {
   isShown: boolean;
@@ -26,7 +27,11 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onApply={onApplyPressed} onClear={reset} />
+      <ModalHeader
+        onApply={onApplyPressed}
+        onClear={reset}
+        isActive={getAnyChoosed(form)}
+      />
       <NameFilter />
       <SpeciesFilter />
       <GenderOptions />

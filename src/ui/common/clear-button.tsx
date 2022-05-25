@@ -4,12 +4,16 @@ import styled from 'styled-components/native';
 
 interface IClearButtonProps {
   onPress?: () => void;
+  isVisible?: boolean;
 }
 
-export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {
+export const ClearButton: React.FC<IClearButtonProps> = ({
+  onPress,
+  isVisible,
+}) => {
   return (
     <Button onPress={onPress}>
-      <Label>Clear</Label>
+      <Label isVisible={isVisible}>Clear</Label>
     </Button>
   );
 };
@@ -17,7 +21,8 @@ export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {
 const Button = styled.TouchableOpacity`
   width: 70px;
 `;
-const Label = styled(Body2)`
+const Label = styled(Body2)<{isVisible?: boolean}>`
+  opacity: ${({isVisible}) => (isVisible ? '100' : '0')};
   font-family: ${props => props.theme.fonts.regular};
   color: ${props => props.theme.colors.accent.indigo};
 `;
