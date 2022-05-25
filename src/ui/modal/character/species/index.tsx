@@ -3,7 +3,7 @@ import React from 'react';
 import {SpeciesModal} from './species-input';
 import {SpeciesOption} from './species-option';
 
-export const Species = () => {
+export const SpeciesFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
   return (

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 interface IClearButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 export const ClearButton: React.FC<IClearButtonProps> = ({onPress}) => {

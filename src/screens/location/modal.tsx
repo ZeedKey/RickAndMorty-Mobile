@@ -1,12 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
-import {LocationContext, LocationFormContext} from '@store';
-import styled from 'styled-components/native';
 import {
   DimensionFilter,
   LocationNameFilter as NameFilter,
   TypeFilter,
 } from '@ui/modal';
+import {useLocationFilter} from '@hooks';
 
 interface IModalProps {
   isShown: boolean;
@@ -17,21 +16,16 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter} = useContext(LocationContext);
-  const {form, setForm} = useContext(LocationFormContext);
+  const {setFilter, reset, form} = useLocationFilter();
 
   const onApplyPressed = () => {
     setFilter({...form});
     setShown(false);
   };
-  const onClearPressed = () => {
-    setFilter({});
-    setForm({});
-  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onApply={onApplyPressed} onClear={onClearPressed} />
+      <ModalHeader onApply={onApplyPressed} onClear={reset} />
       <NameFilter />
       <TypeFilter />
       <DimensionFilter />

@@ -1,54 +1,36 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
-import styled from 'styled-components/native';
-import {CharacterContext, CharFormContext} from '@store';
 import {
-  CharNameModal as NameModal,
+  CharacterNameFilter as NameFilter,
   GenderOptions,
-  NameOption,
-  SpeciesModal,
-  SpeciesOption,
+  SpeciesFilter,
   StatusOptions,
 } from '@ui/modal';
+import {useCharacterFilter} from '@hooks';
 
 interface IModalProps {
   isShown: boolean;
   setShown: (isShown: boolean) => void;
 }
 
-export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
-  const {setFilter} = useContext(CharacterContext);
-  const {form, setForm} = useContext(CharFormContext);
-
-  const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
-  const [isSpeciesModalShown, setSpeciesModalShown] = useState<boolean>(false);
+export const CharacterFilterModal: React.FC<IModalProps> = ({
+  isShown,
+  setShown,
+}) => {
+  const {setFilter, reset, form} = useCharacterFilter();
 
   const onApplyPressed = () => {
     setFilter({...form});
     setShown(false);
   };
-  const onClearPressed = () => {
-    setFilter({});
-    setForm({});
-  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onApply={onApplyPressed} onClear={onClearPressed} />
-      <Box>
-        <NameOption onPress={() => setNameModalShown(true)} />
-        <SpeciesOption onPress={() => setSpeciesModalShown(true)} />
-        <StatusOptions />
-        <GenderOptions />
-      </Box>
-
-      <NameModal isShown={isNameModalShown} setShown={setNameModalShown} />
-      <SpeciesModal
-        isShown={isSpeciesModalShown}
-        setShown={setSpeciesModalShown}
-      />
+      <ModalHeader onApply={onApplyPressed} onClear={reset} />
+      <NameFilter />
+      <SpeciesFilter />
+      <GenderOptions />
+      <StatusOptions />
     </ModalMenu>
   );
 };
-
-const Box = styled.View``;

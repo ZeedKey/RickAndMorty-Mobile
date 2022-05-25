@@ -3,9 +3,9 @@ import {List} from '@ui/common';
 import {useFetchCharacters} from '@hooks';
 import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
-import {CharacterFilter} from './modal';
 import {CharFormProvider as FormContext} from '@store';
 import {getAnyChoosed} from '@utils';
+import {CharacterFilterModal} from './modal';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
@@ -41,7 +41,7 @@ export const CharacterScreen = () => {
           renderItem={renderItem}
           handlePage={pagination}
         />
-        <CharacterFilter isShown={isVisible} setShown={setVisible} />
+        <CharacterFilterModal isShown={isVisible} setShown={setVisible} />
       </MainLayout>
     </FormContext>
   );

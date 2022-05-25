@@ -12,16 +12,12 @@ export const Character: React.FC<schema.Character> = ({
   id,
 }) => {
   const navigation = useNavigation();
-
   const pushToDetails = () =>
-    navigation.navigate(Routes.CharacterDetails, {
-      id,
-    });
+    navigation.navigate(Routes.CharacterDetails, {id});
 
   return (
     <Box onPress={pushToDetails}>
       <BadgeIcon source={{uri: image}} />
-
       <TextBox>
         <Status>{status}</Status>
         <Name>{name}</Name>

@@ -7,7 +7,7 @@ import {List} from '@ui/common';
 import {getAnyChoosed} from '@utils';
 import React, {useContext, useState} from 'react';
 import {MainLayout} from 'src/ui/layouts/MainLayout';
-import {EpisodeFilter} from './modal';
+import {EpisodeFilterModal} from './modal';
 
 export const EpisodeScreen = () => {
   const {filter} = useContext(EpisodeContext);
@@ -32,7 +32,7 @@ export const EpisodeScreen = () => {
           data={data?.episodes.results}
           renderItem={renderItem}
         />
-        <EpisodeFilter isShown={isVisibile} setShown={setVisible} />
+        <EpisodeFilterModal isShown={isVisibile} setShown={setVisible} />
       </MainLayout>
     </FormContext>
   );
