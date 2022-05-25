@@ -7,13 +7,17 @@ export const TvIcon = ({
   height = 28,
   color = theme.colors.accent.indigo,
 }: SvgProps) => (
-  <Svg width={width} height={height} fill="none">
+  <Svg width={width} height={height}>
     <Path
-      d="M24 8.167H5.332A2.333 2.333 0 0 0 3 10.5v12.833a2.333 2.333 0 0 0 2.333 2.334h18.666a2.333 2.333 0 0 0 2.334-2.334V10.5A2.333 2.333 0 0 0 24 8.167Z"
-      fill={color}
+      d="M23.333 8.167H4.667A2.333 2.333 0 002.333 10.5v12.833a2.333 2.333 0 002.334 2.334h18.666a2.333 2.333 0 002.334-2.334V10.5a2.333 2.333 0 00-2.334-2.333z"
+      stroke={color}
+      fill={color !== theme.colors.accent.indigo ? 'white' : color}
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <Path
-      d="m20.5 2.333-5.834 5.834-5.833-5.834"
+      d="M19.833 2.333L14 8.167 8.167 2.333"
       stroke={color}
       strokeWidth={2}
       strokeLinecap="round"
@@ -21,3 +25,5 @@ export const TvIcon = ({
     />
   </Svg>
 );
+
+export default TvIcon;
