@@ -4,7 +4,7 @@ import {useFetchCharacters} from '@hooks';
 import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
 import {CharacterFilter} from './modal';
-import {CharFormProvider} from '@store';
+import {CharFormProvider as FormContext} from '@store';
 import {getAnyChoosed} from '@utils';
 
 export const CharacterScreen = () => {
@@ -31,7 +31,7 @@ export const CharacterScreen = () => {
   const onHeaderClick = () => setVisible(true);
 
   return (
-    <CharFormProvider>
+    <FormContext>
       <MainLayout
         title="Characters"
         callback={onHeaderClick}
@@ -43,6 +43,6 @@ export const CharacterScreen = () => {
         />
         <CharacterFilter isShown={isVisible} setShown={setVisible} />
       </MainLayout>
-    </CharFormProvider>
+    </FormContext>
   );
 };

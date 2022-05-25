@@ -20,15 +20,13 @@ export const CharacterDetails: React.FC = () => {
   const renderItem = ({item}: {item: Model}) => <Episode {...item} />;
 
   return (
-    <SafeAreaView>
-      <TitleLayout title={data?.character.name}>
-        <List
-          data={data?.character.episode}
-          renderItem={renderItem}
-          columns={1}
-          header={() => <CharacterHeader data={data} />}
-        />
-      </TitleLayout>
-    </SafeAreaView>
+    <TitleLayout title={data?.character.name}>
+      <List
+        data={data?.character.episode}
+        renderItem={renderItem}
+        columns={1}
+        header={() => <CharacterHeader data={data} />}
+      />
+    </TitleLayout>
   );
 };

@@ -1,8 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {MainLayout} from 'src/ui/layouts/MainLayout';
 import {List} from '@ui/common';
 import {useFetchLocations, useModal} from '@hooks';
-import {LocationContext, LocationFormContextProvider} from '@store';
+import {
+  LocationContext,
+  LocationFormContextProvider as FormContext,
+} from '@store';
 import {LocationFilterModal as Filter} from './modal';
 import {getAnyChoosed} from '@utils';
 
@@ -19,7 +22,7 @@ export const LocationScreen = () => {
   const onHeaderClick = () => setShown(true);
 
   return (
-    <LocationFormContextProvider>
+    <FormContext>
       <MainLayout
         title="Locations"
         callback={onHeaderClick}
@@ -31,6 +34,6 @@ export const LocationScreen = () => {
         />
       </MainLayout>
       <Filter isShown={isShown} setShown={setShown} />
-    </LocationFormContextProvider>
+    </FormContext>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Header} from '@ui/common';
-import styled from 'styled-components/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface IMainLayoutProps {
   title: string;
@@ -16,17 +16,13 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
   isFilterActive,
 }) => {
   return (
-    <Box>
+    <SafeAreaView>
       <Header
         title={title}
         callback={callback}
         isFilterActive={isFilterActive}
       />
       {children}
-    </Box>
+    </SafeAreaView>
   );
 };
-
-const Box = styled.SafeAreaView`
-  height: 100%;
-`;

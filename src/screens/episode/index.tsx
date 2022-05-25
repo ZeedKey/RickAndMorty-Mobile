@@ -1,5 +1,8 @@
 import {useFetchEpisodes} from '@hooks';
-import {EpisodeContext, EpisodeFormContextProvider} from '@store';
+import {
+  EpisodeContext,
+  EpisodeFormContextProvider as FormContext,
+} from '@store';
 import {List} from '@ui/common';
 import {getAnyChoosed} from '@utils';
 import React, {useContext, useState} from 'react';
@@ -18,7 +21,7 @@ export const EpisodeScreen = () => {
   const onHeaderClick = () => setVisible(true);
 
   return (
-    <EpisodeFormContextProvider>
+    <FormContext>
       <MainLayout
         title="Episodes"
         callback={onHeaderClick}
@@ -31,6 +34,6 @@ export const EpisodeScreen = () => {
         />
         <EpisodeFilter isShown={isVisibile} setShown={setVisible} />
       </MainLayout>
-    </EpisodeFormContextProvider>
+    </FormContext>
   );
 };
