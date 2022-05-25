@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {
   DimensionFilter,
@@ -17,7 +17,11 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter, reset, form} = useLocationFilter();
+  const {setFilter, filter, reset, form, setForm} = useLocationFilter();
+
+  useEffect(() => {
+    setForm({...filter});
+  }, [setShown, isShown]);
 
   const onApplyPressed = () => {
     setFilter({...form});
@@ -26,11 +30,7 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader
-        onApply={onApplyPressed}
-        onClear={reset}
-        isActive={false}
-      />
+      <ModalHeader onApply={onApplyPressed} onClear={reset} isActive={false} />
       <NameFilter />
       <TypeFilter />
       <DimensionFilter />

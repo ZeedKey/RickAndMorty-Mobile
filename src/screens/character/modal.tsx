@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {
   CharacterNameFilter as NameFilter,
@@ -18,7 +18,11 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter, reset, form} = useCharacterFilter();
+  const {setFilter, reset, form, setForm, filter} = useCharacterFilter();
+
+  useEffect(() => {
+    setForm({...filter});
+  }, [setShown, isShown]);
 
   const onApplyPressed = () => {
     setFilter({...form});

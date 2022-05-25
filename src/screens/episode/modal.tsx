@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {EpisodeFilter, EpisodeNameFilter as NameFilter} from '@ui/modal';
 import {useEpisodeFilter} from '@hooks';
@@ -13,7 +13,11 @@ export const EpisodeFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter, form, reset} = useEpisodeFilter();
+  const {setFilter, form, reset, setForm, filter} = useEpisodeFilter();
+
+  useEffect(() => {
+    setForm({...filter});
+  }, [setShown, isShown]);
 
   const onApplyPressed = () => {
     setFilter({...form});

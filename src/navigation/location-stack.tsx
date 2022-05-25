@@ -23,9 +23,7 @@ export const LocationStack = () => {
         name={Routes.LocationDetails}
         component={LocationDetails}
         options={{
-          header: ({navigation}) => (
-            <BackButton onPress={() => navigation.goBack()} />
-          ),
+          headerLeft: () => <BackButton onPress={() => nav.goBack()} />,
           headerShown: true,
         }}
       />
