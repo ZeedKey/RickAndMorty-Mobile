@@ -28,6 +28,10 @@ export const CharacterFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
     setShown(false);
   };
 
+  // const onClearPressed = () => {
+  //   setFilter()
+  // }
+
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader onPress={onApplyPressed} />

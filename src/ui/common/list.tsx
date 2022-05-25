@@ -27,17 +27,12 @@ export const List: React.FC<IListProps> = props => {
       ListHeaderComponent={props.header}
       renderItem={props.renderItem}
       style={{
-        backgroundColor: theme.colors.basic.white,
+        backgroundColor: theme.colors.basic.light_gray,
       }}
       contentContainerStyle={{
         paddingBottom: 40,
+        backgroundColor: theme.colors.basic.white,
       }}
-      ListHeaderComponentStyle={
-        props.headerStyle ||
-        {
-          // marginBottom: 17,
-        }
-      }
       numColumns={props.columns ?? 2}
       columnWrapperStyle={
         props.columns != 1 && {

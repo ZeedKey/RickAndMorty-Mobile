@@ -1,6 +1,7 @@
 import React from 'react';
 import {Header} from '@ui/common';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import styled from 'styled-components/native';
 
 interface IMainLayoutProps {
   title: string;

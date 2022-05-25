@@ -2,7 +2,7 @@ import {GetLocationByIdQuery} from 'src/schemas/generated';
 import {View} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
-import {Headline3, Tagline2, Headline2 as Name, Caption1} from '@theme';
+import {Headline3, Tagline2, Caption1, Headline2} from '@theme';
 
 interface IHeaderProps {
   data?: GetLocationByIdQuery;
@@ -27,6 +27,9 @@ const Box = styled.View`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.colors.basic.light_gray};
+`;
+const Name = styled(Headline2)`
+  text-align: center;
 `;
 const Type = styled(Caption1)`
   letter-spacing: ${props => props.theme.letterspacing.l7}px;

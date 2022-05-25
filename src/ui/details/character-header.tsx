@@ -7,7 +7,7 @@ import {
 import styled from 'styled-components/native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {View} from 'react-native';
-import {Body1, Caption1, Headline2, Headline2 as Name, Tagline2} from '@theme';
+import {Body1, Caption1, Headline2, Tagline2} from '@theme';
 
 interface IHeaderProps {
   data: GetCharactersByIdQuery | undefined;
@@ -54,6 +54,9 @@ const Head = styled.View`
   align-items: center;
   background-color: ${props => props.theme.colors.basic.light_gray};
 `;
+const Name = styled(Headline2)`
+  text-align: center;
+`;
 const Status = styled(Caption1)`
   letter-spacing: ${props => props.theme.letterspacing.l8}px;
   color: ${props => props.theme.colors.basic.additional_text};
@@ -61,11 +64,14 @@ const Status = styled(Caption1)`
 const Species = styled(Tagline2)`
   color: ${props => props.theme.colors.basic.additional_text};
 `;
-const Title = styled(Headline2)`
+const Title = styled(Body1)`
+  margin-top: 20px;
   color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
 `;
 const Tail = styled.View`
   background-color: ${props => props.theme.colors.basic.white};
   margin-left: 19px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 `;

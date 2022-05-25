@@ -1,0 +1,1 @@
+export const resetFilter = (filter: <T>) => filter.
