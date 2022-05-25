@@ -15,7 +15,7 @@ interface IModalProps {
 
 export const EpisodeFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
   const {setFilter} = useContext(EpisodeContext);
-  const {form} = useContext(EpisodeFormContext);
+  const {form, setForm} = useContext(EpisodeFormContext);
 
   const [isNameModalShown, setNameModalShown] = useState<boolean>(false);
   const [isEpisodeModalShown, setEpisodeModalShown] = useState<boolean>(false);
@@ -24,10 +24,14 @@ export const EpisodeFilter: React.FC<IModalProps> = ({isShown, setShown}) => {
     setFilter({...form});
     setShown(false);
   };
+  const onClearPressed = () => {
+    setFilter({});
+    setForm({});
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onPress={onApplyPressed} />
+      <ModalHeader onApply={onApplyPressed} onClear={onClearPressed} />
       <EpisodeNameOption onPress={() => setNameModalShown(true)} />
       <EpisodeOption onPress={() => setEpisodeModalShown(true)} />
 

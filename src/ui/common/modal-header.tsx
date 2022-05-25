@@ -5,15 +5,19 @@ import {ClearButton} from '@ui/common';
 import {Body3} from '@theme';
 
 interface IFilterHeaderProps {
-  onPress?: () => void;
+  onApply?: () => void;
+  onClear?: () => void;
 }
 
-export const ModalHeader: React.FC<IFilterHeaderProps> = ({onPress}) => {
+export const ModalHeader: React.FC<IFilterHeaderProps> = ({
+  onApply,
+  onClear,
+}) => {
   return (
     <Box>
-      <ClearButton onPress={() => 1} />
+      <ClearButton onPress={onClear} />
       <Title>Filter</Title>
-      <ApplyButton onPress={onPress} />
+      <ApplyButton onPress={onApply} />
     </Box>
   );
 };

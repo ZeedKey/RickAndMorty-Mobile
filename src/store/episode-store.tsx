@@ -1,8 +1,8 @@
 import React, {createContext, useState} from 'react';
 
 export interface IEpisodeFilterState {
-  name: string;
-  episode: string;
+  name?: string;
+  episode?: string;
 }
 
 const initialState: IEpisodeFilterState = {

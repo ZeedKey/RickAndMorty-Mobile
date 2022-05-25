@@ -1,9 +1,9 @@
 import React, {createContext, useState} from 'react';
 
 export interface ILocationFilterState {
-  name: string;
-  type: string;
-  dimension: string;
+  name?: string;
+  type?: string;
+  dimension?: string;
 }
 
 const initialState: ILocationFilterState = {

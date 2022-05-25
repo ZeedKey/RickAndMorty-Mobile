@@ -22,7 +22,7 @@ export const CharFormContext = createContext({
   setForm: (val: ICharacterFilterState) => {},
 });
 export const CharFormProvider = ({children}: {children: React.ReactNode}) => {
-  const [form, setForm] = useState(initialState);
+  const [form, setForm] = useState(initialState || {});
   return (
     <CharFormContext.Provider
       value={{

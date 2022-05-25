@@ -2,6 +2,11 @@ import React, {useContext} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {LocationContext, LocationFormContext} from '@store';
 import styled from 'styled-components/native';
+import {
+  DimensionFilter,
+  LocationNameFilter as NameFilter,
+  TypeFilter,
+} from '@ui/modal';
 
 interface IModalProps {
   isShown: boolean;
@@ -13,28 +18,23 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
   setShown,
 }) => {
   const {setFilter} = useContext(LocationContext);
-  const {form} = useContext(LocationFormContext);
+  const {form, setForm} = useContext(LocationFormContext);
 
   const onApplyPressed = () => {
     setFilter({...form});
     setShown(false);
   };
   const onClearPressed = () => {
-    setFilter({...form});
-    setShown(false);
+    setFilter({});
+    setForm({});
   };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <ModalHeader onPress={onApplyPressed} />
-      <Title>423423423432</Title>
-      {/* <NameFilter />
+      <ModalHeader onApply={onApplyPressed} onClear={onClearPressed} />
+      <NameFilter />
       <TypeFilter />
-      <DimensionFilter /> */}
+      <DimensionFilter />
     </ModalMenu>
   );
 };
-
-const Title = styled.Text`
-  color: black;
-`;
