@@ -25,6 +25,7 @@ export const GenderOptions: React.FC = () => {
         onPress={() => onChange(GendersEnum.genderless)}
       />
       <Option
+        last
         label="Unknown"
         isChecked={form.gender === GendersEnum.unknown}
         onPress={() => onChange(GendersEnum.unknown)}

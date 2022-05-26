@@ -14,7 +14,7 @@ export const EpisodeFilterModal: React.FC<IModalProps> = ({
   setShown,
 }) => {
   const {filter, applyFilter, resetFilter} = useContext(EpisodeContext);
-  const {form, setForm} = useContext(EpisodeFormContext);
+  const {form, setForm, resetForm} = useContext(EpisodeFormContext);
 
   useEffect(() => {
     setForm(filter);
@@ -24,12 +24,16 @@ export const EpisodeFilterModal: React.FC<IModalProps> = ({
     applyFilter(form);
     setShown(false);
   };
+  const onClearPressed = () => {
+    resetFilter();
+    resetForm();
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader
         onApply={onApplyPressed}
-        onClear={resetFilter}
+        onClear={onClearPressed}
         isActive={getAnyChoosed(form)}
       />
       <NameFilter />

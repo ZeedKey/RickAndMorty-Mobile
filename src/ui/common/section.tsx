@@ -6,12 +6,13 @@ import {Body2} from '@theme';
 export const Section: React.FC<{
   label: string;
   isChecked?: boolean;
+  last?: boolean;
   onPress: () => void;
-}> = ({label, isChecked, onPress}) => {
+}> = ({label, isChecked, onPress, last}) => {
   return (
     <StyledOption onPress={onPress}>
       <Checkbox isChecked={isChecked} />
-      <TextBox>
+      <TextBox isLast={last}>
         <Label>{label}</Label>
       </TextBox>
     </StyledOption>
@@ -20,13 +21,17 @@ export const Section: React.FC<{
 
 const StyledOption = styled.TouchableOpacity`
   flex-direction: row;
-  padding: 10.5px 19px;
+  align-items: center;
+  margin: 0px 19px;
 `;
-const TextBox = styled.View`
+const TextBox = styled.View<{isLast?: boolean}>`
   width: 100%;
+  border-bottom-width: ${props => (props.isLast ? 0 : 0.5)}px;
+  border-bottom-color: ${props => props.theme.colors.graybase.gray_3};
+  padding-bottom: 10.5px;
+  padding-top: 10.5px;
 `;
 const Label = styled(Body2)`
   font-family: ${props => props.theme.fonts.regular};
-  line-height: 22px;
   letter-spacing: ${props => props.theme.letterspacing.l38}px;
 `;

@@ -19,7 +19,7 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
   setShown,
 }) => {
   const {filter, applyFilter, resetFilter} = useContext(CharacterContext);
-  const {form, setForm} = useContext(CharFormContext);
+  const {form, setForm, resetForm} = useContext(CharFormContext);
 
   useEffect(() => {
     setForm(filter);
@@ -29,18 +29,22 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
     applyFilter({...form});
     setShown(false);
   };
+  const onClearPressed = () => {
+    resetFilter();
+    resetForm();
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader
         onApply={onApplyPressed}
-        onClear={resetFilter}
+        onClear={onClearPressed}
         isActive={getAnyChoosed(form)}
       />
       <NameFilter />
       <SpeciesFilter />
-      <GenderOptions />
       <StatusOptions />
+      <GenderOptions />
     </ModalMenu>
   );
 };

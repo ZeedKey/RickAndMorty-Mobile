@@ -20,6 +20,7 @@ export const StatusOptions: React.FC = () => {
         onPress={() => onChange(StatusEnum.dead)}
       />
       <Option
+        last
         label="Unknown"
         isChecked={form.status === StatusEnum.unknown}
         onPress={() => onChange(StatusEnum.unknown)}

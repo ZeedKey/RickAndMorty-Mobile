@@ -24,12 +24,12 @@ export const EpisodeContext = createContext(initialState);
 export const EpisodeProvider = ({children}: {children: React.ReactNode}) => {
   const [filter, setFilter] = useState(initialState.filter);
 
-  const resetFilter = () => {
-    setFilter(initialState.filter);
-  };
-
   const applyFilter = (form: IEpisodeFilterState) => {
     setFilter(form);
+  };
+
+  const resetFilter = () => {
+    setFilter(initialState.filter);
   };
 
   return (

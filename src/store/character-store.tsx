@@ -37,8 +37,7 @@ export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
   };
 
   const resetFilter = () => {
-    setFilter({});
-    console.log(1);
+    setFilter(initialState.filter);
   };
 
   return (

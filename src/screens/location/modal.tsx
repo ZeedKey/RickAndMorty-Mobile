@@ -6,6 +6,7 @@ import {
   TypeFilter,
 } from '@ui/modal';
 import {LocationContext, LocationFormContext} from '@store';
+import {getAnyChoosed} from '@utils';
 
 interface IModalProps {
   isShown: boolean;
@@ -17,7 +18,7 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
   setShown,
 }) => {
   const {filter, applyFilter, resetFilter} = useContext(LocationContext);
-  const {form, setForm} = useContext(LocationFormContext);
+  const {form, setForm, resetForm} = useContext(LocationFormContext);
 
   useEffect(() => {
     setForm(filter);
@@ -27,13 +28,17 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
     applyFilter(form);
     setShown(false);
   };
+  const onClearPressed = () => {
+    resetFilter();
+    resetForm();
+  };
 
   return (
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader
         onApply={onApplyPressed}
-        onClear={resetFilter}
-        isActive={false}
+        onClear={onClearPressed}
+        isActive={getAnyChoosed(form)}
       />
       <NameFilter />
       <TypeFilter />
