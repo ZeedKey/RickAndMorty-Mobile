@@ -14,7 +14,6 @@ export const CharacterDetails: React.FC = () => {
   const {data} = useGetCharactersByIdQuery({
     variables: {id: route.params.id},
   });
-  console.log(route);
 
   const renderItem = ({item}: {item: Model}) => <Episode {...item} />;
 
