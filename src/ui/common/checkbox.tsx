@@ -17,6 +17,7 @@ export const Checkbox: React.FC<ICheckBoxProps> = ({isChecked}) => {
       offAnimationType="fill"
       onTintColor={theme.colors.accent.indigo}
       value={isChecked}
+      boxType='circle'
     />
   );
 };

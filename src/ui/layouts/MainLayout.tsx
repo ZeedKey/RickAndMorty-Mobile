@@ -1,6 +1,8 @@
 import React from 'react';
 import {Header} from '@ui/common';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {padEnd} from 'lodash';
+import {isIos} from 'src/config';
 
 interface IMainLayoutProps {
   title: string;
@@ -15,14 +17,17 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
   title,
   isFilterActive,
 }) => {
+  const iosHeight = isIos ? {height: '17%'} : {};
   return (
-    <SafeAreaView>
-      <Header
-        title={title}
-        callback={callback}
-        isFilterActive={isFilterActive}
-      />
+    <>
+      <SafeAreaView style={{padding: 0, margin: 0, ...iosHeight}}>
+        <Header
+          title={title}
+          callback={callback}
+          isFilterActive={isFilterActive}
+        />
+      </SafeAreaView>
       {children}
-    </SafeAreaView>
+    </>
   );
 };
