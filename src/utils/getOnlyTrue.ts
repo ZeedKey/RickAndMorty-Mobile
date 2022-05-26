@@ -1,1 +1,0 @@
-export const getOnlyTrue = (filter: Array<boolean>) => filter.filter((e)=> e)
