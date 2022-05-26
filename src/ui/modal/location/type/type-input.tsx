@@ -40,7 +40,6 @@ export const TypeModal: React.FC<ILocationModalProps> = ({
 };
 
 const Header = styled.View`
-  padding: 8.5px 19px;
   border-bottom-width: 0.5px;
   border-color: ${props => props.theme.colors.graybase.gray_5};
 `;

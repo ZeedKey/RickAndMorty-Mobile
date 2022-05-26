@@ -25,6 +25,7 @@ export const DetailsHeader: React.FC<IDetailsHeaderProps> = ({
 const Box = styled.SafeAreaView`
   flex-direction: row;
   align-items: center;
+  background-color: ${props => props.theme.colors.basic.white};
 `;
 const Block = styled.View`
   width: 85px;

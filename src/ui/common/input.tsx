@@ -29,7 +29,10 @@ export const Input: React.FC<IInputProps> = ({
 };
 
 const Box = styled.View`
+  margin-left: 19px;
+  margin-right: 19px;
   margin-top: 20px;
+  margin-bottom: 8.5px;
   padding-left: 11px;
   padding-right: 11px;
   padding-bottom: 5;
