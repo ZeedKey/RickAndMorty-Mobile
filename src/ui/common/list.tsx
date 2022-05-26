@@ -30,7 +30,7 @@ export const List: React.FC<IListProps> = props => {
         backgroundColor: theme.colors.basic.light_gray,
       }}
       contentContainerStyle={{
-        paddingBottom: 60,
+        paddingBottom: 100,
         backgroundColor: theme.colors.basic.white,
       }}
       numColumns={props.columns ?? 2}
