@@ -1,6 +1,7 @@
-import {useCharacterFilter, useFetchCharacters} from '@hooks';
+import {useFetchCharacters} from '@hooks';
+import { CharFormContext} from '@store';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
-import React from 'react';
+import React, {useContext} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -13,7 +14,7 @@ export const SpeciesModal: React.FC<ISpeciesModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useCharacterFilter();
+  const {form, setForm} = useContext(CharFormContext);
   const {data, renderItem, pagination} = useFetchCharacters({
     species: form.species,
   });

@@ -1,24 +1,24 @@
-import {useFetchEpisodes} from '@hooks';
+import {useFetchEpisodes, useModal} from '@hooks';
 import {
   EpisodeContext,
   EpisodeFormContextProvider as FormContext,
 } from '@store';
 import {List} from '@ui/common';
 import {getAnyChoosed} from '@utils';
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {MainLayout} from 'src/ui/layouts/MainLayout';
-import {EpisodeFilterModal} from './modal';
+import {EpisodeFilterModal as Modal} from './modal';
 
 export const EpisodeScreen = () => {
   const {filter} = useContext(EpisodeContext);
-  const [isVisibile, setVisible] = useState<boolean>(false);
+  const {isShown, setShown} = useModal();
 
   const {data, renderItem, pagination} = useFetchEpisodes({
     name: filter.name,
     episode: filter.episode,
   });
 
-  const onHeaderClick = () => setVisible(true);
+  const onHeaderClick = () => setShown(true);
 
   return (
     <FormContext>
@@ -32,7 +32,7 @@ export const EpisodeScreen = () => {
           data={data?.episodes.results}
           renderItem={renderItem}
         />
-        <EpisodeFilterModal isShown={isVisibile} setShown={setVisible} />
+        <Modal isShown={isShown} setShown={setShown} />
       </MainLayout>
     </FormContext>
   );

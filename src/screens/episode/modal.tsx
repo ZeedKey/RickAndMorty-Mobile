@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {EpisodeFilter, EpisodeNameFilter as NameFilter} from '@ui/modal';
-import {useEpisodeFilter} from '@hooks';
 import {getAnyChoosed} from '@utils';
 
 interface IModalProps {
@@ -13,7 +12,7 @@ export const EpisodeFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter, form, reset, setForm, filter} = useEpisodeFilter();
+  // const {setFilter, form, reset, setForm, filter} = useEpisodeFilter();
 
   useEffect(() => {
     setForm({...filter});

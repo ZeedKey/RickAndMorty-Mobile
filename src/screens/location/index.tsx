@@ -6,7 +6,7 @@ import {
   LocationContext,
   LocationFormContextProvider as FormContext,
 } from '@store';
-import {LocationFilterModal as Filter} from './modal';
+import {LocationFilterModal as Modal} from './modal';
 import {getAnyChoosed} from '@utils';
 
 export const LocationScreen = () => {
@@ -33,7 +33,7 @@ export const LocationScreen = () => {
           handlePage={pagination}
         />
       </MainLayout>
-      <Filter isShown={isShown} setShown={setShown} />
+      <Modal isShown={isShown} setShown={setShown} />
     </FormContext>
   );
 };

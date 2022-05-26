@@ -6,22 +6,18 @@ import {BackArrow} from '../icons/backarrow';
 
 export const BackButton: React.FC<{onPress?: () => void}> = ({onPress}) => {
   return (
-    <SafeArea>
-      <Button onPress={onPress}>
-        <BackArrow />
-        <Label>Back</Label>
-      </Button>
-    </SafeArea>
+    <Button onPress={onPress}>
+      <BackArrow />
+      <Label>Back</Label>
+    </Button>
   );
 };
 
-const SafeArea = styled.View`
-  align-items: flex-start;
-`;
-
 const Button = styled.Pressable`
+  padding: 9px 19px;
   display: flex;
   flex-direction: row;
+  width: 85px;
 `;
 const Label = styled(Body2)`
   font-family: ${props => props.theme.fonts.regular};

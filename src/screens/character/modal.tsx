@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {ModalHeader, ModalMenu} from '@ui/common';
 import {
   CharacterNameFilter as NameFilter,
@@ -6,8 +6,8 @@ import {
   SpeciesFilter,
   StatusOptions,
 } from '@ui/modal';
-import {useCharacterFilter} from '@hooks';
 import {getAnyChoosed} from '@utils';
+import {CharacterContext, CharFormContext} from '@store';
 
 interface IModalProps {
   isShown: boolean;
@@ -18,14 +18,15 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {setFilter, reset, form, setForm, filter} = useCharacterFilter();
+  const {filter, applyFilter, resetFilter} = useContext(CharacterContext);
+  const {form, setForm} = useContext(CharFormContext);
 
   useEffect(() => {
-    setForm({...filter});
+    setForm(filter);
   }, [setShown, isShown]);
 
   const onApplyPressed = () => {
-    setFilter({...form});
+    applyFilter({...form});
     setShown(false);
   };
 
@@ -33,7 +34,7 @@ export const CharacterFilterModal: React.FC<IModalProps> = ({
     <ModalMenu showModal={isShown} setShowModal={setShown}>
       <ModalHeader
         onApply={onApplyPressed}
-        onClear={reset}
+        onClear={resetFilter}
         isActive={getAnyChoosed(form)}
       />
       <NameFilter />

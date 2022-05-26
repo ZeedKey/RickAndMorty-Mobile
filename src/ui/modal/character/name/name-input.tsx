@@ -1,6 +1,7 @@
-import {useCharacterFilter, useFetchCharacters} from '@hooks';
+import {useFetchCharacters} from '@hooks';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
-import React from 'react';
+import React, {useContext} from 'react';
+import {CharFormContext} from '@store';
 
 import styled from 'styled-components/native';
 
@@ -13,7 +14,7 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useCharacterFilter();
+  const {form, setForm} = useContext(CharFormContext);
   const {data, renderItem, pagination} = useFetchCharacters({
     name: form.name,
   });

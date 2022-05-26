@@ -1,41 +1,33 @@
-import {CharFormContext, ICharacterFilterState} from '@store';
+import {GendersEnum} from '@models';
+import {CharFormContext} from '@store';
 import {Multioption, Section as Option} from '@ui/common';
 import React, {useContext} from 'react';
 
 export const GenderOptions: React.FC = () => {
-  const {form, setForm} = useContext(CharFormContext);
-
-  const onPress = (name: keyof ICharacterFilterState) => {
-    if (!form.isAnyGenderChoosed || form[name]) {
-      setForm({
-        ...form,
-        isAnyGenderChoosed: !form.isAnyGenderChoosed,
-        [name]: !form[name],
-      });
-    }
-  };
+  const {form, changeField} = useContext(CharFormContext);
+  const onChange = (val: GendersEnum) => changeField('gender', val);
 
   return (
     <Multioption title="Gender">
       <Option
         label="Female"
-        isChecked={form.isFemale}
-        onPress={() => onPress('isFemale')}
+        isChecked={form.gender === GendersEnum.female}
+        onPress={() => onChange(GendersEnum.female)}
       />
       <Option
         label="Male"
-        isChecked={form.isMale}
-        onPress={() => onPress('isMale')}
+        isChecked={form.gender === GendersEnum.male}
+        onPress={() => onChange(GendersEnum.male)}
       />
       <Option
         label="Genderless"
-        isChecked={form.isGenderless}
-        onPress={() => onPress('isGenderless')}
+        isChecked={form.gender === GendersEnum.genderless}
+        onPress={() => onChange(GendersEnum.genderless)}
       />
       <Option
         label="Unknown"
-        isChecked={form.isGenderUnknown}
-        onPress={() => onPress('isGenderUnknown')}
+        isChecked={form.gender === GendersEnum.unknown}
+        onPress={() => onChange(GendersEnum.unknown)}
       />
     </Multioption>
   );

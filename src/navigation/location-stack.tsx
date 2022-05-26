@@ -1,14 +1,13 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Routes, useNavigation} from './routes';
+import {Routes} from './routes';
 import {LocationScreen} from '@screens';
 import {LocationDetails} from 'src/screens/location/details';
-import {BackButton} from '@ui/common';
+import {DetailsHeader} from '@ui/common';
 
 const Location = createNativeStackNavigator();
 
 export const LocationStack = () => {
-  const nav = useNavigation();
   return (
     <Location.Navigator
       initialRouteName={Routes.LocationScreen}
@@ -23,7 +22,9 @@ export const LocationStack = () => {
         name={Routes.LocationDetails}
         component={LocationDetails}
         options={{
-          headerLeft: () => <BackButton onPress={() => nav.goBack()} />,
+          header: ({navigation, route}) => (
+            <DetailsHeader title={''} onPress={() => console.log(route)} />
+          ),
           headerShown: true,
         }}
       />

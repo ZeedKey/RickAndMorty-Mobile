@@ -3,6 +3,7 @@ import React from 'react';
 import {Character as Model, useGetCharactersQuery} from 'src/schemas/generated';
 
 export const useFetchCharacters = (props: any) => {
+
   const {data, fetchMore} = useGetCharactersQuery({
     variables: {
       name: props?.name ?? '',
@@ -12,6 +13,7 @@ export const useFetchCharacters = (props: any) => {
       status: props.status ?? '',
     },
   });
+
   const renderItem = ({item}: {item: Model}) => <Character {...item} />;
 
   const onEndReached = async () => {

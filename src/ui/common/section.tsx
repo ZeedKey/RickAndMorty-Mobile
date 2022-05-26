@@ -19,7 +19,6 @@ export const Section: React.FC<{
 };
 
 const StyledOption = styled.TouchableOpacity`
-  display: flex;
   flex-direction: row;
   padding: 10.5px 19px;
 `;

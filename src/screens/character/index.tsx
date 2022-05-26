@@ -1,34 +1,29 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {List} from '@ui/common';
-import {useFetchCharacters} from '@hooks';
+import {useFetchCharacters, useModal} from '@hooks';
 import {CharacterContext} from 'src/store/character-store';
 import {MainLayout} from '@ui/layouts';
 import {CharFormProvider as FormContext} from '@store';
 import {getAnyChoosed} from '@utils';
 import {CharacterFilterModal} from './modal';
+import {useGetCharactersLazyQuery} from 'src/schemas/generated';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
-  const [isVisible, setVisible] = useState<boolean>(false);
+  const {isShown, setShown} = useModal();
+  // const [load, {called, loading, data}] = useGetCharactersLazyQuery(GET_GREETING, {
+  //   variables: {language: 'english'},
+  // });
 
   const {data, renderItem, pagination} = useFetchCharacters({
     name: filter.name,
     species: filter.species,
-    gender:
-      (filter.isMale && 'male') ||
-      (filter.isFemale && 'female') ||
-      (filter.isGenderUnknown && 'unknown') ||
-      (filter.isGenderless && 'genderless') ||
-      '',
-    status:
-      (filter.isAlive && 'Alive') ||
-      (filter.isDead && 'Dead') ||
-      (filter.isUnknown && 'Unknown') ||
-      '',
+    gender: filter.gender,
+    status: filter.status,
     page: 1,
   });
 
-  const onHeaderClick = () => setVisible(true);
+  const onHeaderClick = () => setShown(true);
 
   return (
     <FormContext>
@@ -41,7 +36,7 @@ export const CharacterScreen = () => {
           renderItem={renderItem}
           handlePage={pagination}
         />
-        <CharacterFilterModal isShown={isVisible} setShown={setVisible} />
+        <CharacterFilterModal isShown={isShown} setShown={setShown} />
       </MainLayout>
     </FormContext>
   );

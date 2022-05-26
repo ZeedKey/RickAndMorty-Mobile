@@ -1,42 +1,30 @@
+import {GendersEnum} from '@models';
 import React, {createContext, useState} from 'react';
 
 export interface ICharacterFilterState {
   name?: string;
   species?: string;
-  isAlive?: boolean;
-  isDead?: boolean;
-  isUnknown?: boolean;
-  isFemale?: boolean;
-  isMale?: boolean;
-  isGenderless?: boolean;
-  isGenderUnknown?: boolean;
-  isApplied?: boolean;
+  status?: string;
+  gender?: GendersEnum | '';
   isAnyChoosed?: boolean;
   isAnyGenderChoosed?: boolean;
   isAnyStatusChoosed?: boolean;
 }
 interface IInitialStateProps {
   filter: ICharacterFilterState;
-  setFilter: React.Dispatch<React.SetStateAction<ICharacterFilterState>>;
+  resetFilter: () => void;
+  applyFilter: any;
 }
 
-const initialState: IInitialStateProps = {
+export const initialState: IInitialStateProps = {
   filter: {
     name: '',
     species: '',
-    isAlive: false,
-    isDead: false,
-    isUnknown: false,
-    isFemale: false,
-    isMale: false,
-    isGenderless: false,
-    isGenderUnknown: false,
-    isApplied: false,
-    isAnyChoosed: false,
-    isAnyGenderChoosed: false,
-    isAnyStatusChoosed: false,
+    gender: '',
+    status: '',
   },
-  setFilter: () => null,
+  resetFilter: () => null,
+  applyFilter: () => null,
 };
 
 export const CharacterContext = createContext(initialState);
@@ -44,8 +32,16 @@ export const CharacterContext = createContext(initialState);
 export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
   const [filter, setFilter] = useState(initialState.filter || {});
 
+  const resetFilter = () => {
+    setFilter(initialState.filter);
+  };
+
+  const applyFilter = (form: ICharacterFilterState) => {
+    setFilter(form);
+  };
+
   return (
-    <CharacterContext.Provider value={{filter, setFilter}}>
+    <CharacterContext.Provider value={{filter, resetFilter, applyFilter}}>
       {children}
     </CharacterContext.Provider>
   );
