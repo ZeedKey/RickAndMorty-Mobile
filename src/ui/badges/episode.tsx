@@ -20,7 +20,9 @@ export const Episode: React.FC<schema.Episode> = ({
   return (
     <Box onPress={pushToDetails}>
       <Episodes>{episode}</Episodes>
-      <Name>{name}</Name>
+      <Name numberOfLines={2} ellipsizeMode="tail">
+        {name}
+      </Name>
       <Airdate>{air_date}</Airdate>
     </Box>
   );

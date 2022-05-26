@@ -15,7 +15,9 @@ export const Location: React.FC<schema.Location> = ({type, id, name}) => {
   return (
     <Box onPress={pushToDetails}>
       <Type>{type}</Type>
-      <Name>{name}</Name>
+      <Name numberOfLines={2} ellipsizeMode="tail">
+        {name}
+      </Name>
     </Box>
   );
 };

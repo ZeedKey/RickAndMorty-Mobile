@@ -5,6 +5,7 @@ export const Headline1 = styled.Text`
   font-family: ${props => props.theme.fonts.bold};
   font-size: ${props => props.theme.sizes.s40}px;
   letter-spacing: ${props => props.theme.letterspacing.l41}px;
+  
 `;
 export const Headline2 = styled.Text`
   font-family: ${props => props.theme.fonts.bold};

@@ -23,7 +23,9 @@ export const Character: React.FC<schema.Character> = ({
       <BadgeIcon source={{uri: image}} />
       <TextBox>
         <Status>{status}</Status>
-        <Name>{name}</Name>
+        <Name numberOfLines={1} ellipsizeMode="tail">
+          {name}
+        </Name>
       </TextBox>
     </Box>
   );
@@ -44,6 +46,8 @@ const Status = styled(Caption1)`
 `;
 const Name = styled(Body2)`
   flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const BadgeIcon = styled.Image`
   height: 164px;

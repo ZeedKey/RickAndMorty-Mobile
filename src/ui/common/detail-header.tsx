@@ -16,13 +16,13 @@ export const DetailsHeader: React.FC<IDetailsHeaderProps> = ({
   return (
     <Box>
       <BackButton onPress={onPress} />
-      <Title>{title}</Title>
+      <Title numberOfLines={1}>{title}</Title>
       <Block />
     </Box>
   );
 };
 
-const Box = styled(SafeAreaView)`
+const Box = styled.SafeAreaView`
   flex-direction: row;
   align-items: center;
 `;
@@ -32,5 +32,7 @@ const Block = styled.View`
 const Title = styled(Body3)`
   flex: 1;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
   letter-spacing: ${props => props.theme.letterspacing.l24}px;
 `;
