@@ -1,4 +1,4 @@
-import {useFetchLocations, useLocationFilter} from '@hooks';
+import {useFetchLocations} from '@hooks';
 import {LocationFormContext} from '@store';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
 import React, {useContext} from 'react';
@@ -14,7 +14,7 @@ export const DimensionModal: React.FC<IEpisodeModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useLocationFilter();
+  const {form, setForm} = useContext(LocationFormContext);
   const {data, renderItem, pagination} = useFetchLocations({
     dimension: form.dimension,
   });

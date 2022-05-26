@@ -1,6 +1,7 @@
-import {useEpisodeFilter, useFetchEpisodes} from '@hooks';
+import {useFetchEpisodes} from '@hooks';
+import {EpisodeFormContext} from '@store';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
-import React from 'react';
+import React, {useContext} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -13,13 +14,13 @@ export const EpisodeModal: React.FC<IEpisodeModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useEpisodeFilter();
+  const {form, setForm} = useContext(EpisodeFormContext);
   const {data, renderItem, pagination} = useFetchEpisodes({
     episode: form.episode,
   });
 
   const onInputChange = (episode: string) => {
-    setForm({...form, episode: episode});
+    setForm({...form, episode});
   };
 
   return (

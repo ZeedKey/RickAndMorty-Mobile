@@ -5,7 +5,7 @@ import {
   LocationNameFilter as NameFilter,
   TypeFilter,
 } from '@ui/modal';
-import {CharacterContext, CharFormContext} from '@store';
+import {LocationContext, LocationFormContext} from '@store';
 
 interface IModalProps {
   isShown: boolean;
@@ -16,8 +16,8 @@ export const LocationFilterModal: React.FC<IModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {filter, applyFilter, resetFilter} = useContext(CharacterContext);
-  const {form, setForm} = useContext(CharFormContext);
+  const {filter, applyFilter, resetFilter} = useContext(LocationContext);
+  const {form, setForm} = useContext(LocationFormContext);
 
   useEffect(() => {
     setForm(filter);

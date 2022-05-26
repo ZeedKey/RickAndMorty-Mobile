@@ -5,24 +5,40 @@ export interface ILocationFilterState {
   type?: string;
   dimension?: string;
 }
+export interface ILocationState {
+  filter: ILocationFilterState;
+  resetFilter: () => void;
+  applyFilter: (form: ILocationFilterState) => void;
+}
 
-const initialState: ILocationFilterState = {
-  name: '',
-  type: '',
-  dimension: '',
+export const initialState: ILocationState = {
+  filter: {
+    name: '',
+    type: '',
+    dimension: '',
+  },
+  resetFilter: () => null,
+  applyFilter: () => null,
 };
 
-export const LocationContext = createContext({
-  filter: initialState,
-  setFilter: (val: ILocationFilterState) => {},
-});
+export const LocationContext = createContext(initialState);
 export const LocationProvider = ({children}: {children: React.ReactNode}) => {
-  const [filter, setFilter] = useState(initialState);
+  const [filter, setFilter] = useState(initialState.filter);
+
+  const resetFilter = () => {
+    setFilter(initialState.filter);
+  };
+
+  const applyFilter = (form: ILocationFilterState) => {
+    setFilter(form);
+  };
+
   return (
     <LocationContext.Provider
       value={{
         filter,
-        setFilter,
+        applyFilter,
+        resetFilter,
       }}>
       {children}
     </LocationContext.Provider>

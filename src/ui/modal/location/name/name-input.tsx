@@ -1,6 +1,7 @@
-import {useFetchLocations, useLocationFilter} from '@hooks';
+import {useFetchLocations} from '@hooks';
+import {LocationFormContext} from '@store';
 import {BackButton, Input, List, ModalMenu} from '@ui/common';
-import React from 'react';
+import React, {useContext} from 'react';
 
 import styled from 'styled-components/native';
 
@@ -13,7 +14,7 @@ export const NameModal: React.FC<IEpisodeModalProps> = ({
   isShown,
   setShown,
 }) => {
-  const {form, setForm} = useLocationFilter();
+  const {form, setForm} = useContext(LocationFormContext);
   const {data, renderItem, pagination} = useFetchLocations({name: form.name});
 
   const onInputChange = (name: string) => {

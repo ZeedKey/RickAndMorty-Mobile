@@ -20,7 +20,7 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
   });
 
   const onInputChange = (name: string) => {
-    setForm({...form, name: name});
+    setForm({...form, name});
   };
 
   return (
