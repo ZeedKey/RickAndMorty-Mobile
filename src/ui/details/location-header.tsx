@@ -41,4 +41,5 @@ const Title = styled(Headline3)`
   letter-spacing: ${props => props.theme.letterspacing.l34}px;
   color: ${props => props.theme.colors.basic.additional_text};
   margin-left: 19px;
+  margin-top: 20px;
 `;
