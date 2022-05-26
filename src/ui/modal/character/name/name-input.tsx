@@ -1,9 +1,8 @@
 import {useFetchCharacters} from '@hooks';
-import {BackButton, Input, List, ModalMenu} from '@ui/common';
+import {List} from '@ui/common';
 import React, {useContext} from 'react';
 import {CharFormContext} from '@store';
-
-import styled from 'styled-components/native';
+import {ModalLayout} from '@ui/layouts';
 
 interface ICharNameModalProps {
   isShown: boolean;
@@ -24,23 +23,17 @@ export const CharNameModal: React.FC<ICharNameModalProps> = ({
   };
 
   return (
-    <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <Header>
-        <BackButton onPress={() => setShown(false)} />
-        <Input onChange={onInputChange} value={form.name} />
-      </Header>
-
+    <ModalLayout
+      title="Name"
+      value={form.name}
+      isShown={isShown}
+      setShown={setShown}
+      onInputChange={onInputChange}>
       <List
         data={data?.characters.results}
         renderItem={renderItem}
         handlePage={pagination}
       />
-    </ModalMenu>
+    </ModalLayout>
   );
 };
-
-const Header = styled.View`
-  border-bottom-width: 0.5px;
-  border-color: ${props => props.theme.colors.graybase.gray_5};
-`;
-

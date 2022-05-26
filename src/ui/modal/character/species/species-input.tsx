@@ -1,9 +1,8 @@
 import {useFetchCharacters} from '@hooks';
-import { CharFormContext} from '@store';
-import {BackButton, Input, List, ModalMenu} from '@ui/common';
+import {CharFormContext} from '@store';
+import {List} from '@ui/common';
+import {ModalLayout} from '@ui/layouts';
 import React, {useContext} from 'react';
-
-import styled from 'styled-components/native';
 
 interface ISpeciesModalProps {
   isShown: boolean;
@@ -24,22 +23,17 @@ export const SpeciesModal: React.FC<ISpeciesModalProps> = ({
   };
 
   return (
-    <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <Header>
-        <BackButton onPress={() => setShown(false)} />
-        <Input onChange={onInputChange} value={form.species} />
-      </Header>
+    <ModalLayout
+      title="Species"
+      value={form.name}
+      isShown={isShown}
+      setShown={setShown}
+      onInputChange={onInputChange}>
       <List
         data={data?.characters.results}
         renderItem={renderItem}
         handlePage={pagination}
       />
-    </ModalMenu>
+    </ModalLayout>
   );
 };
-
-const Header = styled.View`
-  border-bottom-width: 0.5px;
-  border-color: ${props => props.theme.colors.graybase.gray_5};
-`;
-

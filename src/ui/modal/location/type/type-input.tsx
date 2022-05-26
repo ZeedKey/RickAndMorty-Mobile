@@ -1,9 +1,8 @@
 import {useFetchLocations} from '@hooks';
 import {LocationFormContext} from '@store';
-import {BackButton, Input, List, ModalMenu} from '@ui/common';
+import {List} from '@ui/common';
 import React, {useContext} from 'react';
-
-import styled from 'styled-components/native';
+import {ModalLayout} from '@ui/layouts';
 
 interface ILocationModalProps {
   isShown: boolean;
@@ -24,22 +23,18 @@ export const TypeModal: React.FC<ILocationModalProps> = ({
   };
 
   return (
-    <ModalMenu showModal={isShown} setShowModal={setShown}>
-      <Header>
-        <BackButton onPress={() => setShown(false)} />
-        <Input onChange={onInputChange} value={form.type} />
-      </Header>
+    <ModalLayout
+      title="Type"
+      value={form.type}
+      isShown={isShown}
+      setShown={setShown}
+      onInputChange={onInputChange}>
       <List
         columns={2}
         data={data?.locations.results}
         renderItem={renderItem}
         handlePage={pagination}
       />
-    </ModalMenu>
+    </ModalLayout>
   );
 };
-
-const Header = styled.View`
-  border-bottom-width: 0.5px;
-  border-color: ${props => props.theme.colors.graybase.gray_5};
-`;
