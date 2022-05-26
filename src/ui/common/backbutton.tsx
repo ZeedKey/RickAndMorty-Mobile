@@ -1,6 +1,5 @@
 import {Body2} from '@theme';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import {BackArrow} from '../icons/backarrow';
 

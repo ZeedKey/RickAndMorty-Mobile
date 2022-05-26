@@ -1,6 +1,5 @@
 import {Headline1 as Name, Headline3} from '@theme';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
 import CircleIcon from '../icons/circle';
 

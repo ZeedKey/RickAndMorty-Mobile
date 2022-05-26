@@ -2,21 +2,22 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {BackButton} from '@ui/common';
 import {Body3} from '@theme';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
 interface IDetailsHeaderProps {
-  title: string;
   onPress: () => void;
 }
 
-export const DetailsHeader: React.FC<IDetailsHeaderProps> = ({
-  title,
-  onPress,
-}) => {
+export const DetailsHeader: React.FC<IDetailsHeaderProps> = ({onPress}) => {
+  const {
+    params,
+  }: RouteProp<{params: {params: {id: string; name: string}}}, 'params'> =
+    useRoute();
+
   return (
     <Box>
       <BackButton onPress={onPress} />
-      <Title numberOfLines={1}>{title}</Title>
+      <Title numberOfLines={1}>{params.params.name}</Title>
       <Block />
     </Box>
   );

@@ -20,7 +20,7 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
   const iosHeight = isIos ? {height: '17%'} : {};
   return (
     <>
-      <SafeAreaView style={{padding: 0, margin: 0, ...iosHeight}}>
+      <SafeAreaView style={{...iosHeight}}>
         <Header
           title={title}
           callback={callback}
