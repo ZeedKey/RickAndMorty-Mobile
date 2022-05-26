@@ -4,6 +4,7 @@ import {Routes} from './routes';
 import {LocationScreen} from '@screens';
 import {LocationDetails} from 'src/screens/location/details';
 import {DetailsHeader} from '@ui/common';
+import {NavigationProps} from '@models';
 
 const Location = createNativeStackNavigator();
 
@@ -22,8 +23,11 @@ export const LocationStack = () => {
         name={Routes.LocationDetails}
         component={LocationDetails}
         options={{
-          header: ({navigation, route}) => (
-            <DetailsHeader title={''} onPress={() => console.log(route)} />
+          header: ({navigation, route}: NavigationProps) => (
+            <DetailsHeader
+              title={route.params.name}
+              onPress={() => navigation.goBack()}
+            />
           ),
           headerShown: true,
         }}

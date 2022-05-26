@@ -11,9 +11,6 @@ import {useGetCharactersLazyQuery} from 'src/schemas/generated';
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);
   const {isShown, setShown} = useModal();
-  // const [load, {called, loading, data}] = useGetCharactersLazyQuery(GET_GREETING, {
-  //   variables: {language: 'english'},
-  // });
 
   const {data, renderItem, pagination} = useFetchCharacters({
     name: filter.name,

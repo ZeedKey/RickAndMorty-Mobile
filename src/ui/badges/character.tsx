@@ -11,9 +11,12 @@ export const Character: React.FC<schema.Character> = ({
   name,
   id,
 }) => {
-  const navigation = useNavigation();
+  const {navigate} = useNavigation();
   const pushToDetails = () =>
-    navigation.navigate(Routes.CharacterDetails, {id});
+    navigate(Routes.CharacterStack, {
+      screen: Routes.CharacterDetails,
+      params: {id, name},
+    });
 
   return (
     <Box onPress={pushToDetails}>

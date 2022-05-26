@@ -5,9 +5,12 @@ import * as schema from 'src/schemas/generated';
 import styled from 'styled-components/native';
 
 export const Location: React.FC<schema.Location> = ({type, id, name}) => {
-  const navigation = useNavigation();
-  const pushToDetails = () => 
-    navigation.navigate(Routes.LocationDetails, {id});
+  const {navigate} = useNavigation();
+  const pushToDetails = () =>
+    navigate(Routes.LocationStack, {
+      screen: Routes.LocationDetails,
+      params: {id, name},
+    });
 
   return (
     <Box onPress={pushToDetails}>

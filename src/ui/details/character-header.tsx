@@ -1,11 +1,7 @@
 import {DetailOption} from '@ui/common';
 import React from 'react';
-import {
-  GetCharactersByIdQuery,
-  useGetCharactersByIdQuery,
-} from 'src/schemas/generated';
+import {GetCharactersByIdQuery} from 'src/schemas/generated';
 import styled from 'styled-components/native';
-import {RouteProp, useRoute} from '@react-navigation/native';
 import {View} from 'react-native';
 import {Body1, Caption1, Headline2, Tagline2} from '@theme';
 
@@ -13,13 +9,7 @@ interface IHeaderProps {
   data: GetCharactersByIdQuery | undefined;
 }
 
-export const CharacterHeader: React.FC<IHeaderProps> = () => {
-  const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
-
-  const {data} = useGetCharactersByIdQuery({
-    variables: {id: route.params.id},
-  });
-
+export const CharacterHeader: React.FC<IHeaderProps> = ({data}) => {
   return (
     <View>
       <Head>

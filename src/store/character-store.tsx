@@ -32,12 +32,13 @@ export const CharacterContext = createContext(initialState);
 export const CharacterProvider = ({children}: {children: React.ReactNode}) => {
   const [filter, setFilter] = useState(initialState.filter || {});
 
-  const resetFilter = () => {
-    setFilter(initialState.filter);
-  };
-
   const applyFilter = (form: ICharacterFilterState) => {
     setFilter(form);
+  };
+
+  const resetFilter = () => {
+    setFilter({});
+    console.log(1);
   };
 
   return (

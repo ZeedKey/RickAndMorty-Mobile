@@ -10,9 +10,12 @@ export const Episode: React.FC<schema.Episode> = ({
   air_date,
   id,
 }) => {
-  const navigation = useNavigation();
+  const {navigate} = useNavigation();
   const pushToDetails = () =>
-    navigation.navigate(Routes.EpisodeDetails, {id});
+    navigate(Routes.EpisodeStack, {
+      screen: Routes.EpisodeDetails,
+      params: {id, name},
+    });
 
   return (
     <Box onPress={pushToDetails}>

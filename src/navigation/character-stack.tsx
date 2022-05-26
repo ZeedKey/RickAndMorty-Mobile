@@ -4,12 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Routes, useNavigation} from './routes';
 import {CharacterScreen} from '@screens';
 import {CharacterDetails} from 'src/screens/character/details';
-import {BackButton} from '@ui/common';
+import {DetailsHeader} from '@ui/common';
+import {NavigationProps} from '@models';
 
 const Character = createNativeStackNavigator();
 
 export const CharacterStack = () => {
-  const nav = useNavigation();
   return (
     <Character.Navigator
       initialRouteName={Routes.CharacterScreen}
@@ -25,8 +25,11 @@ export const CharacterStack = () => {
         component={CharacterDetails}
         options={{
           headerShown: true,
-          headerLeft: () => (
-            <BackButton onPress={() => nav.navigate(Routes.CharacterScreen)} />
+          header: ({navigation, route}: NavigationProps) => (
+            <DetailsHeader
+              title={route.params.name}
+              onPress={() => navigation.goBack()}
+            />
           ),
           headerTitleAlign: 'center',
         }}

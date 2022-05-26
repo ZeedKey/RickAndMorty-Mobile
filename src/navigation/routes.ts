@@ -8,9 +8,9 @@ export enum Routes {
   CharacterScreen = 'Characters',
   LocationScreen = 'Locations',
 
-  EpisodeStack = 'Episodes ',
-  CharacterStack = 'Characters ',
-  LocationStack = 'Locations ',
+  EpisodeStack = 'EpisodesStak',
+  CharacterStack = 'CharactersStak',
+  LocationStack = 'LocationsStak',
 
   MainNavigator = 'MainNavigator',
 

@@ -13,7 +13,6 @@ import {EpisodeHeader} from '@ui/details';
 
 export const EpisodeDetails: React.FC = () => {
   const route: RouteProp<{params: {id: string}}, 'params'> = useRoute();
-
   const {data} = useGetEpisodeByIdQuery({
     variables: {id: route.params.id},
   });

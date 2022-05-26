@@ -1,16 +1,16 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Routes, useNavigation} from './routes';
+import {Routes} from './routes';
 import {EpisodeScreen} from '@screens';
 import {} from 'src/screens/character/details';
 import {EpisodeDetails} from 'src/screens/episode/details';
-import {BackButton} from '@ui/common';
+import {DetailsHeader} from '@ui/common';
+import {NavigationProps} from '@models';
 
 const Episode = createNativeStackNavigator();
 
 export const EpisodeStack = () => {
-  const nav = useNavigation();
   return (
     <Episode.Navigator
       initialRouteName={Routes.EpisodeScreen}
@@ -23,8 +23,11 @@ export const EpisodeStack = () => {
         component={EpisodeDetails}
         options={{
           headerShown: true,
-          headerLeft: () => (
-            <BackButton onPress={() => nav.navigate(Routes.EpisodeScreen)} />
+          header: ({navigation, route}: NavigationProps) => (
+            <DetailsHeader
+              title={route.params.name}
+              onPress={() => navigation.goBack()}
+            />
           ),
           headerTitleAlign: 'center',
         }}
