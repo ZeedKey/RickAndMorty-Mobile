@@ -24,7 +24,11 @@ export const PlanetIcon = ({
     </G>
     <Defs>
       <ClipPath id="a">
-        <Path fill="#fff" transform="translate(.722)" d="M0 0h28v28H0z" />
+        <Path
+          fill={theme.colors.basic.white}
+          transform="translate(.722)"
+          d="M0 0h28v28H0z"
+        />
       </ClipPath>
     </Defs>
   </Svg>
