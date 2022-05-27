@@ -14,18 +14,17 @@ export const TabBar = () => {
   return (
     <Tab.Navigator
       initialRouteName={Routes.CharacterStack}
-      screenOptions={{headerShown: false}}>
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: theme.colors.accent.indigo,
+        tabBarInactiveTintColor: theme.colors.basic.gray,
+      }}>
       <Tab.Screen
         name={Routes.CharacterStack}
         component={CharacterStack}
         options={{
           headerTitle: 'Characters',
-          tabBarIcon: ({focused}) =>
-            focused ? (
-              <GhostIcon />
-            ) : (
-              <GhostIcon color={theme.colors.basic.gray} />
-            ),
+          tabBarIcon: ({color}) => <GhostIcon color={color} />,
         }}
       />
 
@@ -34,12 +33,7 @@ export const TabBar = () => {
         component={LocationStack}
         options={{
           headerTitle: 'Locations',
-          tabBarIcon: ({focused}) =>
-            focused ? (
-              <PlanetIcon />
-            ) : (
-              <PlanetIcon color={theme.colors.basic.gray} />
-            ),
+          tabBarIcon: ({color}) => <PlanetIcon color={color} />,
         }}
       />
 
@@ -48,8 +42,7 @@ export const TabBar = () => {
         component={EpisodeStack}
         options={{
           headerTitle: 'Episodes',
-          tabBarIcon: ({focused}) =>
-            focused ? <TvIcon /> : <TvIcon color={theme.colors.basic.gray} />,
+          tabBarIcon: ({color}) => <TvIcon color={color} />,
         }}
       />
     </Tab.Navigator>
