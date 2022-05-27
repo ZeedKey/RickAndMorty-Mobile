@@ -2,7 +2,6 @@ import {Body2, Caption1} from '@theme';
 import React from 'react';
 import {Routes, useNavigation} from 'src/navigation/routes';
 import * as schema from 'src/schemas/generated';
-
 import styled from 'styled-components/native';
 
 export const Character: React.FC<schema.Character> = ({

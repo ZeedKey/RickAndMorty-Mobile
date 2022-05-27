@@ -13,7 +13,7 @@ export interface ICharacterFilterState {
 interface IInitialStateProps {
   filter: ICharacterFilterState;
   resetFilter: () => void;
-  applyFilter: any;
+  applyFilter: (form: ICharacterFilterState) => void;
 }
 
 export const initialState: IInitialStateProps = {
