@@ -6,8 +6,7 @@ import {CharacterProvider} from './src/store/character-store';
 import {EpisodeProvider, LocationProvider} from '@store';
 import {ThemeProvider} from 'styled-components/native';
 import {theme} from '@theme';
-
-const API_URL = 'https://rickandmortyapi.com/graphql';
+import {API_URL} from '@env';
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -22,7 +21,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  uri: API_URL,
+  uri: `${API_URL}`,
   cache: cache,
 });
 

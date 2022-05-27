@@ -1,4 +1,4 @@
-import {GendersEnum} from '@models';
+import {GendersEnum} from 'src/types';
 import React, {createContext, useState} from 'react';
 
 export interface ICharacterFilterState {

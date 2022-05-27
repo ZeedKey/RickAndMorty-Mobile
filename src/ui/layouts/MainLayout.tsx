@@ -1,7 +1,6 @@
 import React from 'react';
 import {Header} from '@ui/common';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {padEnd} from 'lodash';
 import {isIos} from 'src/config';
 
 interface IMainLayoutProps {

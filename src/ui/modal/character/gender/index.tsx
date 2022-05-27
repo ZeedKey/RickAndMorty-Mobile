@@ -1,4 +1,4 @@
-import {GendersEnum} from '@models';
+import {GendersEnum} from 'src/types';
 import {CharFormContext} from '@store';
 import {Multioption, Section as Option} from '@ui/common';
 import React, {useContext} from 'react';

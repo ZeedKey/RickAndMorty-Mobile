@@ -1,10 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator, NativeStackHeaderProps} from '@react-navigation/native-stack';
-
 import {Routes} from './routes';
 import {EpisodeScreen} from '@screens';
 import {EpisodeDetails} from 'src/screens/episode/details';
 import {DetailsHeader} from '@ui/common';
+
 const Episode = createNativeStackNavigator();
 
 export const EpisodeStack = () => {
