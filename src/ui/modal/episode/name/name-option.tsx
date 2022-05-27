@@ -6,9 +6,9 @@ interface INameOptionProps {
   onPress: () => void;
 }
 
-export const NameOption: React.FC<INameOptionProps> = ({onPress}) => {
+export const EpisodeNameOption: React.FC<INameOptionProps> = ({onPress}) => {
   const {form} = useContext(EpisodeFormContext);
-  
+
   return (
     <Option
       title="Name"

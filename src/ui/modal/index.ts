@@ -1,25 +1,23 @@
+export { GenderOptions } from "./character/gender/gender-options";
+export { CharacterNameFilter } from "./character/name/name-filter";
 export { CharNameModal } from "./character/name/name-input";
 export { NameOption } from "./character/name/name-option";
+export { SpeciesFilter } from "./character/species/species-filter";
 export { SpeciesModal } from "./character/species/species-input";
 export { SpeciesOption } from "./character/species/species-option";
+export { StatusOptions } from "./character/status/status-options";
+export { EpisodeFilter } from "./episode/episode/episode-filter";
 export { EpisodeModal } from "./episode/episode/episode-input";
 export { EpisodeOption } from "./episode/episode/episode-option";
+export { EpisodeNameFilter } from "./episode/name/name-filter";
 export { EpisodeNameModal } from "./episode/name/name-input";
-export { NameOption as EpisodeNameOption} from "./episode/name/name-option";
+export { EpisodeNameOption } from "./episode/name/name-option";
+export { DimensionFilter } from "./location/dimension/dimension-filter";
 export { DimensionModal } from "./location/dimension/dimension-input";
 export { LocDimensionOption } from "./location/dimension/dimension-option";
+export { LocationNameFilter } from "./location/name/name-filter";
 export { NameModal } from "./location/name/name-input";
 export { LocNameOption } from "./location/name/name-option";
+export { TypeFilter } from "./location/type/type-filter";
 export { TypeModal } from "./location/type/type-input";
 export { LocTypeOption } from "./location/type/type-option";
-
-export * from "./location/dimension"
-export * from "./location/type"
-export * from "./character/gender"
-export * from "./character/status"
-export * from "./character/species"
-
-export {EpisodeFilter} from "./episode/episode"
-export {LocationNameFilter} from "./location/name"
-export {EpisodeNameFilter} from "./episode/name"
-export {CharacterNameFilter} from "./character/name"

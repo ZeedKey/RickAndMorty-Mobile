@@ -1,15 +1,15 @@
 import {useModal} from '@hooks';
 import React from 'react';
 import {EpisodeNameModal as NameModal} from './name-input';
-import {NameOption} from './name-option';
+import {EpisodeNameOption} from './name-option';
 
 export const EpisodeNameFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
-  
+
   return (
     <>
-      <NameOption onPress={handleOpen} />
+      <EpisodeNameOption onPress={handleOpen} />
       <NameModal isShown={isShown} setShown={setShown} />
     </>
   );

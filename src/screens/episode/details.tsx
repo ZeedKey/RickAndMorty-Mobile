@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Character as Model,
-  Episode,
   useGetEpisodeByIdQuery,
 } from 'src/schemas/generated';
 import {List} from '@ui/common';
