@@ -9,27 +9,13 @@ export const GenderOptions: React.FC = () => {
 
   return (
     <Multioption title="Gender">
-      <Option
-        label="Female"
-        isChecked={form.gender === GendersEnum.female}
-        onPress={() => onChange(GendersEnum.female)}
-      />
-      <Option
-        label="Male"
-        isChecked={form.gender === GendersEnum.male}
-        onPress={() => onChange(GendersEnum.male)}
-      />
-      <Option
-        label="Genderless"
-        isChecked={form.gender === GendersEnum.genderless}
-        onPress={() => onChange(GendersEnum.genderless)}
-      />
-      <Option
-        last
-        label="Unknown"
-        isChecked={form.gender === GendersEnum.unknown}
-        onPress={() => onChange(GendersEnum.unknown)}
-      />
+      {Object.values(GendersEnum).map(e => (
+        <Option
+          label={e.charAt(0).toUpperCase() + e.slice(1)}
+          isChecked={form.gender === GendersEnum[e]}
+          onPress={() => onChange(GendersEnum[e])}
+        />
+      ))}
     </Multioption>
   );
 };
