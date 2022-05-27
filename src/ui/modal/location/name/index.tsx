@@ -3,9 +3,10 @@ import React from 'react';
 import {LocNameOption as NameOption} from './name-option';
 import {NameModal} from './name-input';
 
-export const NameFilter = () => {
+export const LocationNameFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
+  
   return (
     <>
       <NameOption onPress={handleOpen} />

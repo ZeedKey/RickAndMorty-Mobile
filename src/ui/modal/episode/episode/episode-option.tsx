@@ -8,6 +8,7 @@ interface INameOptionProps {
 
 export const EpisodeOption: React.FC<INameOptionProps> = ({onPress}) => {
   const {form} = useContext(EpisodeFormContext);
+  
   return (
     <Option
       title="Episode"

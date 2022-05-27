@@ -6,6 +6,7 @@ import {LocTypeOption as TypeOption} from './type-option';
 export const TypeFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
+  
   return (
     <>
       <TypeOption onPress={handleOpen} />

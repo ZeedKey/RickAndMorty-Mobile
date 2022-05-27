@@ -8,6 +8,7 @@ interface ISpeciesOptionProps {
 
 export const SpeciesOption: React.FC<ISpeciesOptionProps> = ({onPress}) => {
   const {form} = useContext(CharFormContext);
+  
   return (
     <Option
       title="Species"

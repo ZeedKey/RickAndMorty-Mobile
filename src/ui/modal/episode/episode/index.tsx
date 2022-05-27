@@ -6,6 +6,7 @@ import {EpisodeOption} from './episode-option';
 export const EpisodeFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
+  
   return (
     <>
       <EpisodeOption onPress={handleOpen} />

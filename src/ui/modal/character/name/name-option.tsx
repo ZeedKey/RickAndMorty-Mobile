@@ -8,6 +8,7 @@ interface INameOptionProps {
 
 export const NameOption: React.FC<INameOptionProps> = ({onPress}) => {
   const {form} = useContext(CharFormContext);
+  
   return (
     <Option
       title="Name"

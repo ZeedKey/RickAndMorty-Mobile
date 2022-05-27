@@ -6,6 +6,7 @@ import {SpeciesOption} from './species-option';
 export const SpeciesFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
+  
   return (
     <>
       <SpeciesOption onPress={handleOpen} />

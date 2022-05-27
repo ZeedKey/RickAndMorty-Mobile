@@ -8,6 +8,7 @@ interface INameOptionProps {
 
 export const LocDimensionOption: React.FC<INameOptionProps> = ({onPress}) => {
   const {form} = useContext(LocationFormContext);
+  
   return (
     <Option
       title="Dimension"

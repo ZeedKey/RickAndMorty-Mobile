@@ -6,7 +6,6 @@ import {MainLayout} from '@ui/layouts';
 import {CharFormProvider as FormContext} from '@store';
 import {getAnyChoosed} from '@utils';
 import {CharacterFilterModal} from './modal';
-import {useGetCharactersLazyQuery} from 'src/schemas/generated';
 
 export const CharacterScreen = () => {
   const {filter} = useContext(CharacterContext);

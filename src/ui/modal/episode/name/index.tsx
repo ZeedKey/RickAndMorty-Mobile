@@ -3,9 +3,10 @@ import React from 'react';
 import {EpisodeNameModal as NameModal} from './name-input';
 import {NameOption} from './name-option';
 
-export const NameFilter = () => {
+export const EpisodeNameFilter = () => {
   const {isShown, setShown} = useModal();
   const handleOpen = () => setShown(true);
+  
   return (
     <>
       <NameOption onPress={handleOpen} />
