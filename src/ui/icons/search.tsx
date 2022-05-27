@@ -19,5 +19,3 @@ export const SearchIcon = ({
     </Svg>
   );
 };
-
-export default SearchIcon;

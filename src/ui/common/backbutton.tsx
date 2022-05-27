@@ -1,7 +1,7 @@
 import {Body2} from '@theme';
+import {BackArrow} from '@ui/icons';
 import React from 'react';
 import styled from 'styled-components/native';
-import {BackArrow} from '../icons/backarrow';
 
 export const BackButton: React.FC<{onPress?: () => void}> = ({onPress}) => {
   return (

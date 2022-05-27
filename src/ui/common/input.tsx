@@ -1,7 +1,6 @@
+import {Dictation, SearchIcon} from '@ui/icons';
 import React from 'react';
 import styled from 'styled-components/native';
-import Dictation from '../icons/dictation';
-import SearchIcon from '../icons/search';
 
 interface IInputProps {
   placeholder?: string;

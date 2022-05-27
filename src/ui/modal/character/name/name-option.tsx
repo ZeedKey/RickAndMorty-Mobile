@@ -1,6 +1,6 @@
-import {CharacterContext, CharFormContext} from '@store';
+import {CharFormContext} from '@store';
 import {Option} from '@ui/common';
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 
 interface INameOptionProps {
   onPress: () => void;
@@ -8,7 +8,7 @@ interface INameOptionProps {
 
 export const NameOption: React.FC<INameOptionProps> = ({onPress}) => {
   const {form} = useContext(CharFormContext);
-  
+
   return (
     <Option
       title="Name"

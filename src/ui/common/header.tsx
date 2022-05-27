@@ -1,7 +1,7 @@
 import {Headline1 as Name, Headline3} from '@theme';
+import {CircleIcon} from '@ui/icons';
 import React from 'react';
 import styled from 'styled-components/native';
-import CircleIcon from '../icons/circle';
 
 interface IHeaderProps {
   title: string;

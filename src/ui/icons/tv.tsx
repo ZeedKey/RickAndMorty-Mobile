@@ -25,5 +25,3 @@ export const TvIcon = ({
     />
   </Svg>
 );
-
-export default TvIcon;
